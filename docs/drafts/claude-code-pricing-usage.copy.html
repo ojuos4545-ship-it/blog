@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 요금제·사용량 총정리</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 요금제·사용량 총정리</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 요금제·사용량 총정리 대표 이미지</td><td>01_thumbnail_pricing.png</td></tr><tr><td>02</td><td>비교표</td><td>클로드 코드 요금제 Pro, Max 5x, Max 20x의 월 가격과 사용량 비교</td><td>02_table_plans.png</td></tr><tr><td>03</td><td>다이어그램</td><td>클로드 코드 사용량 한도 구조: 채팅과 클로드 코드가 5시간 한도와 주간 한도를 함께 사용</td><td>03_diagram_usage-limits.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 사용량 한도에 걸렸을 때 할 수 있는 4가지: 대기, 업그레이드, 사용량 크레딧, API</td><td>04_card_limit-reached.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 코드 구독 요금제와 API 종량제 결제 방식의 장점과 주의점 비교</td><td>05_table_subscription-vs-api.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 사용량 확인과 절약 명령 /usage, /status, /clear, /model 정리</td><td>06_card_usage-commands.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 코드 요금제·사용량 요약: Pro부터 시작, 두 겹 한도, /usage로 확인</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드요금제 #클로드코드사용량 #클로드요금제 #ClaudePro #ClaudeMax #AI코딩도구</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드는 월 20달러 Pro부터 쓸 수 있고,<br>
+사용량은 5시간 한도와 주간 한도 두 겹으로 관리됩니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">안녕하세요, 여러분!<br>
+결론부터 말씀드리면, <strong>클로드 코드 요금제</strong>는<br>
+무료 요금제에는 없고 월 20달러인 Pro부터 시작합니다.<br>
+더 많이 쓰려면 월 100달러, 200달러인 Max 두 단계가 있고,<br>
+모든 요금제에 5시간 한도와 주간 한도가 걸려 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"Pro로 충분할까, Max까지 가야 할까?"<br>
+고민하시는 분이 많으시죠?<br>
+막상 써 보면 가격보다 한도가 더 헷갈리는데요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 요금제별 가격과 사용량 한도가 계산되는 방식,<br>
+한도에 걸렸을 때 할 일과 아끼는 법까지 정리해 드리겠습니다.<br>
+가격은 <a href="https://claude.com/pricing">Claude 요금 안내</a>,<br>
+한도와 명령어는 <a href="https://code.claude.com/docs/en/costs">Claude Code 공식 문서</a>를<br>
+2026년 10월 29일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">1. 클로드 코드 요금제는 어떤 게 있을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드는 claude.ai 구독에 함께 들어 있는 기능이라<br>
+따로 결제할 필요는 없습니다.<br>
+다만 무료(Free) 요금제에는 포함되지 않아서<br>
+최소 Pro 이상을 구독해야 하죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">많은 분들이 궁금해하시는 가격부터 표로 정리했습니다.<br>
+(웹 결제 기준 달러 가격이고, 앱 결제는 다를 수 있습니다.)</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">요금제</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">월 가격</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">사용량 (5시간 기준)</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">클로드 코드</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Free</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">0달러</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">기본</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">포함 안 됨</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Pro</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">20달러 (연간 결제 시 월 17달러)</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">Free의 5배 이상</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">포함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Max 5x</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">100달러</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">Pro의 5배</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">포함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Max 20x</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">200달러</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">Pro의 20배</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">포함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Team 표준</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">1인 25달러 (연간 결제 시 20달러)</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">Pro보다 많음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">포함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Team 프리미엄</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">1인 125달러 (연간 결제 시 100달러)</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">표준 좌석의 5배</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">포함</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">Enterprise는 1인당 월 20달러(연간 결제, 최소 20석)에<br>
+쓴 만큼 API 요금이 더해지는 방식이라 구조가 조금 다릅니다.<br>
+개인이라면 Pro와 Max 중에서 고르시면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음이라면 Pro로 시작해 보세요.<br>
+쓰다가 한도에 자주 걸리면 그때 Max로 올려도 늦지 않습니다.<br>
+업그레이드는 결제하는 즉시 적용되거든요.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> Pro는 200달러를 한 번에 내는 연간 결제를 하면<br>
+월 17달러 꼴로 내려갑니다.<br>
+Max는 월 결제만 있으니, Pro를 한 달 써 보며<br>
+내 사용량을 먼저 확인하고 정하시는 편이 안전합니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">2. 사용량 한도는 어떻게 계산될까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드 사용량 한도는 두 겹으로 걸려 있습니다.<br>
+하나는 5시간마다 초기화되는 세션 한도이고,<br>
+다른 하나는 일주일마다 초기화되는 주간 한도입니다.<br>
+한도를 메시지 몇 개처럼 숫자로 공개하지는 않는데요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여기서 꼭 기억할 점은 <strong>채팅과 클로드 코드가 한도를 나눠 쓴다</strong>는 것입니다.<br>
+claude.ai 채팅, 데스크톱 앱, 클로드 코드에서 쓴 양이<br>
+모두 같은 한도에 함께 쌓이죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 오전에 채팅으로 자료를 정리하고 오후에 클로드 코드를 켰다가,<br>
+한도가 이미 꽤 줄어 있어서 놀란 적이 있어요.<br>
+두 곳이 따로 계산되는 줄 아는 분이 많더라고요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그렇다면 사용량은 왜 생각보다 빨리 닳을까요?<br>
+공식 문서와 도움말이 꼽는 원인은 아래와 같습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 오래 열어 둔 긴 대화 (요청마다 대화 전체를 다시 보냄)<br>
+• Opus 같은 상위 모델과 높은 생각 깊이(effort) 설정<br>
+• MCP 같은 도구와 커넥터 사용<br>
+• 서브에이전트와 반복 예약 작업</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">Pro로 큰 작업을 맡기면 생각보다 빨리<br>
+한도 안내가 뜬다는 후기가 많더라고요.<br>
+저도 처음엔 여러 파일을 한꺼번에 고치게 했다가 금방 한도에 닿았어요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드는 요청마다 파일 내용과 도구 결과,<br>
+여러 단계의 추론을 함께 주고받기 때문입니다.<br>
+공식 문서도 디버깅 한 번이<br>
+하루치 채팅보다 많이 쓸 수 있다고 설명합니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">3. 한도에 걸리면 어떻게 해야 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">세션 한도나 주간 한도에 닿으면<br>
+<code style="font-family:monospace">You've hit your session limit</code> 같은 안내와<br>
+초기화 시각이 함께 나옵니다.<br>
+이때 할 수 있는 일은 크게 네 가지입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 안내된 초기화 시각까지 기다립니다.<br>
+2. 상위 요금제로 올립니다. (Pro는 Max 5x로, Max 5x는 Max 20x로)<br>
+3. <code style="font-family:monospace">/usage-credits</code>로 사용량 크레딧을 켭니다.<br>
+4. Console 계정으로 바꿔 API 크레딧으로 씁니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">모델만 바꾸면 풀릴 거라 생각하기 쉬운데요.<br>
+세션 한도와 주간 한도는 모든 모델에 함께 걸려 있어서<br>
+모델을 바꿔도 풀리지 않습니다.<br>
+"Opus 한도"처럼 특정 모델 한도라면 다른 모델로 바꿔 이어 갈 수 있습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">사용량 크레딧은 한도를 넘긴 뒤에도<br>
+작업을 이어 갈 수 있게 해 주는 기능입니다.<br>
+넘긴 만큼은 표준 API 요금으로 따로 청구되죠.<br>
+그래서 claude.ai의 Settings &gt; Usage에서<br>
+월 지출 한도를 함께 정해 두시길 권합니다.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 클로드 코드 v2.1.234 이상에서는<br>
+한도가 풀린 뒤 멈춘 작업을 자동으로 이어 가게 할 수 있습니다.<br>
+언제 자동으로 기다릴지는 <code style="font-family:monospace">/rate-limit-options</code>에서 고르면 됩니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 사용량은 어디서 확인하고 어떻게 아낄까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">사용량 확인은 대화창에 <code style="font-family:monospace">/usage</code>를 입력하면 됩니다.<br>
+구독 중이라면 요금제 사용량 막대와 활동 통계,<br>
+어디에 많이 썼는지 보여 주는 분석까지 한 화면에 나옵니다.<br>
+(<code style="font-family:monospace">d</code>나 <code style="font-family:monospace">w</code> 키로 최근 24시간과 7일을 오갈 수 있습니다.)</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이때 맨 위 Session 칸의 달러 금액은<br>
+API 사용자를 위한 추정치라 구독 청구액과는 관계가 없습니다.<br>
+분석 결과는 이 컴퓨터의 기록으로 계산해서<br>
+다른 기기나 claude.ai 사용량은 빠져 있다는 점도 알아 두세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/status</code>도 함께 보세요.<br>
+지금 구독으로 쓰는지, API 키로 쓰는지 알려 줍니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">환경 변수에 <code style="font-family:monospace">ANTHROPIC_API_KEY</code>를 넣어 둔 채 쓰다가<br>
+구독이 아니라 API 요금으로 청구되는 경우가 꽤 많더라고요.<br>
+저도 <code style="font-family:monospace">/status</code>에서 인증 방식을 보고 나서야 원인을 알았어요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">API 키가 있으면 한 번 승인한 뒤부터 구독보다 먼저 쓰이고,<br>
+<code style="font-family:monospace">-p</code> 옵션으로 실행하면 묻지도 않고 키를 씁니다.<br>
+구독으로 돌아가려면 <code style="font-family:monospace">unset ANTHROPIC_API_KEY</code>로 키를 지우면 됩니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">결제 방식</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">주의점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>구독 (Pro·Max)</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">정액이라 요금 예측이 쉬움</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">5시간·주간 한도가 있음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>API (Console)</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">정액 한도 없이 쓴 만큼 결제</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">많이 쓰면 비용이 빠르게 커짐</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">API로 쓰면 얼마나 나올까요?<br>
+공식 문서에 따르면 기업 환경에서는 개발자 1인당<br>
+활동일 하루 약 13달러, 한 달 150~250달러 수준입니다.<br>
+매일 오래 쓴다면 Max 구독이 계산하기 편한 이유죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">사용량을 아끼는 습관은 아래 다섯 가지면 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 다른 작업으로 넘어갈 땐 <code style="font-family:monospace">/clear</code>로 새로 시작<br>
+• 대부분의 코딩은 Sonnet, 복잡한 설계만 Opus<br>
+• 간단한 작업은 <code style="font-family:monospace">/effort</code>로 생각 깊이 낮추기<br>
+• 쓰지 않는 MCP 서버는 <code style="font-family:monospace">/mcp</code>에서 끄기<br>
+• "코드 개선해줘" 대신 파일과 함수를 콕 집어 요청</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 무작정 아끼는 것이 아니라<br>
+<strong>어디에 많이 쓰는지 아는 것</strong>이겠죠.<br>
+<code style="font-family:monospace">/usage</code>는 최근 사용량의 10% 이상을 차지하는 습관에<br>
+고칠 점을 추천해 주니 가끔 열어 보시길 권합니다.<br>
+<code style="font-family:monospace">/compact</code>는 큰 대화를 요약하느라 그 자체로 큰 요청이 되니,<br>
+이어 갈 필요가 없다면 <code style="font-family:monospace">/clear</code>가 더 낫습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">5. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 요금제와 사용량 한도를 정리해 보았습니다.<br>
+요금제는 Pro부터, 한도는 5시간과 주간 두 겹,<br>
+확인은 <code style="font-family:monospace">/usage</code> 하나만 기억하셔도 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음부터 비싼 요금제를 고를 필요는 없습니다.<br>
+내 사용 패턴을 알고 나서 올려도 늦지 않은 법이죠!<br>
+다음 글에서는 클로드 코드와 커서의 차이 5가지를 비교해 드릴게요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 지금 어떤 요금제를 쓰고 계신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
