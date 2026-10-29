@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 VS Code 사용법 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 VS Code 사용법 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 VS Code 사용법 3단계 대표 이미지</td><td>01_thumbnail_vscode-usage.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 VS Code 확장 설치부터 패널 열기, 로그인까지 3단계 흐름</td><td>02_diagram_install-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 VS Code에서 @로 파일, 폴더, 줄 범위를 지정하는 방법</td><td>03_card_mention.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 VS Code 확장에서 자주 쓰는 단축키 3가지</td><td>04_card_shortcuts.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 코드 VS Code 권한 모드 Manual, Plan, Auto, Edit automatically 비교</td><td>05_table_permission-modes.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 VS Code 사용법 3단계 요약과 다음 글 웹·모바일 사용법 예고</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드VSCode #VSCode확장 #VSCode사용법 #클로드코드사용법 #AI코딩도구 #바이브코딩</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 VS Code 사용법은 확장 설치,<br>
+파일 지정 요청, 수정 검토의 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"터미널은 낯설고, 늘 쓰던 VS Code 안에서 쓰고 싶어요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, 확장을 설치해 패널을 열고,<br>
+<code style="font-family:monospace">@</code>로 파일을 짚어 요청한 뒤, 나란히 보기 화면에서<br>
+수정 내용을 검토하는 것까지가 전부입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드 VS Code 확장은 터미널 대신 편집기 옆 패널에서<br>
+대화하듯 일을 맡기는 그래픽 도구입니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면 설치부터 첫 수정 검토까지<br>
+혼자 해 보실 수 있습니다.<br>
+설치 조건과 단축키는 <a href="https://code.claude.com/docs/en/vs-code">Claude Code 공식 문서</a>를<br>
+2026년 10월 29일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> VS Code 1.94.0 이상, 유료 Claude 요금제<br>
+• <strong>소요 시간:</strong> 확장 설치와 로그인까지 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, VS Code에서 파일을 열어 봤다면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">API 키는 따로 준비하지 않아도 됩니다.<br>
+공식 문서에 따르면 Pro, Max, Team, Enterprise 요금제나<br>
+Claude Console 계정으로 처음 패널을 열 때 로그인하면 되죠.<br>
+VS Code 버전은 메뉴의 <strong>Help &gt; About</strong>에서 확인할 수 있습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 VS Code 확장은 어떻게 설치할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치는 확장 보기에서 이름만 검색하면 됩니다.<br>
+아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. <code style="font-family:monospace">Cmd+Shift+X</code>(Windows는 <code style="font-family:monospace">Ctrl+Shift+X</code>)로 확장 보기를 엽니다.<br>
+2. "Claude Code"를 검색하고 <strong>Install</strong>을 누릅니다.<br>
+3. 파일 하나를 연 뒤, 편집기 오른쪽 위 Spark 아이콘을 누릅니다.<br>
+4. 로그인 화면에서 <strong>Sign in</strong>을 누르고 브라우저에서 허용합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 열 때 가장 많이 막히는 부분은 바로 이 Spark 아이콘입니다.<br>
+저도 처음엔 폴더만 열어 둔 채 아이콘을 한참 찾았어요.<br>
+이 아이콘은 파일이 하나라도 열려 있어야 보이거든요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아이콘이 안 보여도 패널을 여는 길은 더 있습니다.<br>
+왼쪽 활동 표시줄(Activity Bar)의 Spark 아이콘은 늘 보이고,<br>
+창 오른쪽 아래 상태 표시줄의 <strong>Claude Code</strong>를 눌러도 열립니다.<br>
+<code style="font-family:monospace">Cmd+Shift+P</code>(명령 팔레트)에 "Claude Code"를 입력해<br>
+<strong>Open in New Tab</strong>을 골라도 되죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그래도 안 보인다면 명령 팔레트에서<br>
+<strong>Developer: Reload Window</strong>를 실행해 창을 다시 불러오세요.<br>
+작업 폴더를 신뢰하지 않은 제한 모드(Restricted Mode)에서는<br>
+확장이 동작하지 않으니 이것도 함께 확인해 보세요.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">로그인 화면이 계속 뜰 때는 어떻게 할까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">셸에 <code style="font-family:monospace">ANTHROPIC_API_KEY</code>를 설정해 뒀는데도<br>
+로그인 화면이 계속 뜬다는 분이 많더라고요.<br>
+VS Code가 셸의 환경 변수를 물려받지 못해서 생기는 일인데요.<br>
+터미널에서 <code style="font-family:monospace">code .</code>로 VS Code를 열거나,<br>
+Claude 계정으로 로그인하면 해결됩니다.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 확장의 버전 번호는 안에 든 클로드 코드 버전과 같습니다.<br>
+문서에 "v2.1.275 이상"처럼 적힌 기능은<br>
+확장 보기에서 버전 번호를 보고 쓸 수 있는지 판단하세요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 파일을 짚어서 요청하려면 어떻게 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 실제로 일을 맡겨 볼 차례입니다.<br>
+클로드는 지금 열려 있는 파일과 선택한 글자를 자동으로 봅니다.<br>
+그래서 코드를 복사해 붙여 넣지 않아도<br>
+"이 부분 설명해줘"라고 물으면 되죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">다른 파일까지 함께 보게 하려면 <code style="font-family:monospace">@</code>를 씁니다.<br>
+입력창에 <code style="font-family:monospace">@</code>와 파일 이름 일부만 쳐도 후보가 뜨고,<br>
+폴더는 이름 끝에 <code style="font-family:monospace">/</code>를 붙이면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>파일 지정:</strong> <code style="font-family:monospace">@auth</code>처럼 이름 일부만 써도 찾아 줍니다<br>
+• <strong>폴더 지정:</strong> <code style="font-family:monospace">@src/components/</code>처럼 끝에 <code style="font-family:monospace">/</code>를 붙입니다<br>
+• <strong>줄 범위 지정:</strong> 코드를 선택하고 <code style="font-family:monospace">Option+K</code>(Windows는 <code style="font-family:monospace">Alt+K</code>)<br>
+• <strong>터미널 출력:</strong> <code style="font-family:monospace">@terminal:이름</code>으로 터미널 결과를 붙입니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">Option+K</code>를 누르면 <code style="font-family:monospace">@app.ts#5-10</code>처럼<br>
+파일 이름과 줄 번호가 입력창에 들어갑니다.<br>
+이 단축키는 커서가 편집기에 있을 때만 동작하니,<br>
+안 될 때는 코드 쪽을 한 번 클릭해 보세요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">@src/auth.js 의 로그인 함수가 하는 일을 쉽게 설명해줘</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">자주 쓰는 단축키는 무엇일까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">손이 키보드에서 떠나지 않게 해 주는 단축키도 알아 두면 편합니다.<br>
+많은 분들이 궁금해하시는 것만 표로 정리했습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">기능</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">Mac</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">Windows</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>편집기와 입력창 오가기</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Cmd+Esc</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Ctrl+Esc</code></td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>@멘션 넣기</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Option+K</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Alt+K</code></td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>새 탭에서 대화 열기</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Cmd+Shift+Esc</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Ctrl+Shift+Esc</code></td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>닫은 대화 다시 열기</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Cmd+Shift+T</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">Ctrl+Shift+T</code></td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">macOS Tahoe 이후 버전에서는 시스템의 게임 오버레이 단축키가<br>
+<code style="font-family:monospace">Cmd+Esc</code>를 먼저 가로챌 수 있습니다.<br>
+이때는 시스템 설정의 키보드 단축키에서 게임 오버레이를 끄거나,<br>
+VS Code에서 <strong>Claude Code: Focus input</strong> 단축키를 바꾸면 됩니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 수정 내용은 어디서 검토할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드가 파일을 고칠 때 어떻게 움직일지는<br>
+입력창 아래에 표시된 권한 모드가 정합니다.<br>
+표시를 누르면 모드를 바꿀 수 있는데요,<br>
+처음이라면 하나씩 확인하는 <strong>Manual</strong> 모드로 시작해 보세요.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">모드</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">동작 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">주의할 점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Manual</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">수정과 대부분의 명령 전에 허락을 묻습니다</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">확인 요청이 자주 뜹니다</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Plan</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">계획을 먼저 보여 주고 승인을 기다립니다</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">승인 전에는 수정하지 않습니다</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Auto</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">판별기가 대부분의 동작을 대신 검토합니다</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">대부분 묻지 않고 진행합니다</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Edit automatically</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">묻지 않고 바로 수정합니다</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">결과는 직접 챙겨 봐야 합니다</td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">Manual 모드에서는 클로드가 파일을 고치려 할 때<br>
+원본과 수정안을 나란히 보여 주고 허락을 묻습니다.<br>
+받아들이거나 거절할 수도 있고, 다르게 해 달라고 말할 수도 있죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">바뀐 곳이 여러 군데라면 부분마다 붙는<br>
+<strong>Accept this change</strong>, <strong>Reject this change</strong> 버튼으로 하나씩 고르면 됩니다.<br>
+이 기능은 클로드 코드 v2.1.275 이상에서 동작하고,<br>
+바뀐 곳이 100개를 넘으면 파일 전체 단위로만 검토할 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">Plan 모드에서는 계획이 마크다운 문서로 열려<br>
+읽으면서 중간중간 의견을 달 수 있습니다.<br>
+입력창에 <code style="font-family:monospace">/plan</code>을 입력해도 바로 바꿀 수 있는데,<br>
+이 명령은 v2.1.280 이상에서 동작합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">터미널에서 claude 명령이 안 될 때는?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 확장만 설치해 놓고 VS Code 터미널에 <code style="font-family:monospace">claude</code>를 쳤다가<br>
+명령을 찾을 수 없다는 메시지를 보고 당황했어요.<br>
+확장 안에는 채팅 패널용 클로드 코드가 따로 들어 있지만,<br>
+터미널의 <code style="font-family:monospace">claude</code> 명령까지 깔아 주지는 않거든요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">터미널에서도 쓰려면 공식 설치 안내대로 CLI를 한 번 따로 설치하면 됩니다.<br>
+CLI와 확장은 대화 기록을 함께 쓰기 때문에<br>
+터미널에서 <code style="font-family:monospace">claude --resume</code>으로 확장의 대화를 이어 갈 수도 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 도구를 어디서 여느냐가 아니라<br>
+<strong>수정 내용을 내 눈으로 확인하는 습관</strong>이겠죠.<br>
+처음 몇 번은 Manual 모드에서 나란히 보기 화면을 꼼꼼히 살펴보세요.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 VS Code 사용법을<br>
+설치, 파일 지정 요청, 수정 검토의 3단계로 알아보았습니다.<br>
+Spark 아이콘이 안 보이면 파일부터 열고,<br>
+처음 맡길 때는 Manual 모드로 하나씩 확인해 보세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">손에 익은 편집기에서 시작하면 새 도구도 훨씬 덜 낯설기 마련이죠!<br>
+다음 글에서는 브라우저와 휴대폰에서 쓰는<br>
+클로드 코드 웹·모바일 사용법을 정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 VS Code에서 어떤 작업부터 맡겨 보고 싶으신가요?<br>
+막히는 부분이 있다면 편하게 댓글로 알려주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
