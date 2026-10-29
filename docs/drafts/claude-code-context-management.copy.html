@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 컨텍스트 관리 3단계 총정리</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 컨텍스트 관리 3단계 총정리</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 컨텍스트 관리 3단계 총정리 대표 이미지</td><td>01_thumbnail_context.png</td></tr><tr><td>02</td><td>다이어그램</td><td>컨텍스트가 쌓이고, 가득 차고, 요약되는 과정과 초반 세부 지시가 사라질 수 있는 지점</td><td>02_diagram_context-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>/context로 확인하는 컨텍스트 구성, 대화 기록과 파일·명령 출력과 CLAUDE.md·스킬</td><td>03_card_context-check.png</td></tr><tr><td>04</td><td>비교표</td><td>컨텍스트를 비우는 /compact, /clear, Compact instructions의 장단점 비교</td><td>04_table_clear-compact.png</td></tr><tr><td>05</td><td>포인트카드</td><td>컨텍스트를 덜 채우는 방법, CLAUDE.md 200줄 이하와 스킬과 서브에이전트와 MCP 정리</td><td>05_card_context-less.png</td></tr><tr><td>06</td><td>포인트카드</td><td>컨텍스트 관리 3단계 요약, 확인과 비우기와 덜 채우기</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드컨텍스트 #컨텍스트관리 #컨텍스트윈도우 #AI코딩도구 #AI에이전트</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 컨텍스트 관리는<br>
+확인하고, 비우고, 덜 채우는 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"대화가 길어지니까 클로드가 앞에서 한 말을 자꾸 놓쳐요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 컨텍스트 관리</strong>는<br>
+<code style="font-family:monospace">/context</code>로 확인하고, <code style="font-family:monospace">/compact</code>나 <code style="font-family:monospace">/clear</code>로 비운 뒤,<br>
+처음부터 덜 채우는 습관만 들이면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">컨텍스트는 클로드가 대화를 이어 갈 때 한꺼번에 들고 있는 작업 공간입니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면<br>
+언제 확인하고 무엇으로 비울지 혼자 정하실 수 있습니다.<br>
+명령어와 설정은 <a href="https://code.claude.com/docs/en/how-claude-code-works">Claude Code 공식 문서</a>를<br>
+기준으로 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 알아둘 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 진행 중인 대화 하나<br>
+• <strong>소요 시간:</strong> 명령어 몇 개면 충분합니다<br>
+• <strong>난이도:</strong> 초급, 명령어를 입력해 보셨다면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">컨텍스트에는 대화 기록뿐 아니라 읽은 파일 내용,<br>
+명령 실행 결과, CLAUDE.md, 불러온 스킬도 함께 쌓입니다.<br>
+이 공간이 한계에 가까워지면 클로드 코드가 대화를 요약본으로 압축하는데요.<br>
+이때 초반에 말한 세부 지시는 사라질 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 긴 작업 중간에 앞서 정해 둔 규칙을 놓치는 일을 겪었어요.<br>
+대화가 길어질수록 클로드가 지시에서 벗어나거나<br>
+같은 작업을 반복한다는 이야기가 많더라고요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. /context로 컨텍스트는 어떻게 확인할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본은 지금 무엇이 자리를 차지하는지 아는 것입니다.<br>
+클로드 코드 대화창에 <code style="font-family:monospace">/context</code>를 입력하면<br>
+무엇이 공간을 쓰고 있는지 확인할 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">컨텍스트에 쌓이는 주요 항목은 다음과 같습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 대화 기록: 지금까지 나눈 요청과 답변<br>
+• 파일과 명령 출력: 읽은 파일 내용, 실행 결과<br>
+• CLAUDE.md와 메모리: 세션마다 불러오는 규칙<br>
+• 스킬과 시스템 지침: 불러온 스킬, 기본 지침</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/context</code>로 보면 CLAUDE.md나 MCP 설정이 자리를 꽤 차지하는 경우가 있더라고요.<br>
+설정이 길어졌다면 Step 3에서 정리해 보세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 컨텍스트는 /compact와 /clear 중 무엇으로 비울까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에 헷갈리기 쉬운 부분은 두 명령의 차이입니다.<br>
+같은 작업을 이어 갈 때는 <code style="font-family:monospace">/compact</code>,<br>
+관련 없는 새 작업으로 넘어갈 때는 <code style="font-family:monospace">/clear</code>를 씁니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/compact</code>는 대화를 요약해서 공간을 되찾는 명령입니다.<br>
+남길 내용은 <code style="font-family:monospace">/compact focus on the API changes</code>처럼<br>
+지시문을 붙여서 정할 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/clear</code>는 새 세션을 시작하는 것과 같아서<br>
+이전 대화가 컨텍스트에서 모두 사라집니다.<br>
+나중에 돌아올 대화라면 <code style="font-family:monospace">/rename</code>으로 이름을 붙인 뒤<br>
+<code style="font-family:monospace">/clear</code>를 하고, <code style="font-family:monospace">/resume</code>으로 다시 불러오세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">방법</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">단점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>/compact</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">같은 작업을 이어 갈 수 있음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">초반 세부 지시가 사라질 수 있음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>/clear</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">쌓인 낡은 컨텍스트를 모두 비움</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이전 대화가 사라짐</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Compact instructions</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">자동 압축에도 남길 내용을 정함</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">CLAUDE.md가 길어짐</td></tr></table>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 자동 압축에도 남길 내용을 정하고 싶다면<br>
+CLAUDE.md에 <code style="font-family:monospace">Compact instructions</code> 항목을 만드세요.<br>
+아래처럼 한 줄만 적어도 압축할 때 참고합니다.</blockquote>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em"># Compact instructions
+
+When you are using compact, please focus on test output and code changes</pre>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 컨텍스트를 덜 채우려면 어떻게 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">비우는 것만큼 중요한 건 처음부터 덜 채우는 것이겠죠.<br>
+네 가지만 기억해 두세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• CLAUDE.md는 200줄 이하로, 꼭 필요한 내용만<br>
+• 작업별 긴 지침은 스킬로 옮기기<br>
+• 큰 출력이 나오는 일은 서브에이전트에게<br>
+• 안 쓰는 MCP 서버는 꺼 두기</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">CLAUDE.md는 세션이 시작될 때마다 컨텍스트에 들어옵니다.<br>
+특정 작업에만 쓰는 긴 지침은 스킬로 옮기면<br>
+필요할 때만 불러오니 기본 공간을 아낄 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">테스트 결과나 로그처럼 출력이 큰 일을 직접 시키면<br>
+컨텍스트가 금세 차 버리는 경우가 많더라고요.<br>
+이런 일은 서브에이전트에게 맡기면 요약만 돌아옵니다.<br>
+서브에이전트는 자기만의 컨텍스트 창에서 일하기 때문이죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">MCP 도구 정의는 필요할 때만 불러오지만,<br>
+서버를 많이 켜 둘수록 도구 이름과 서버 지침이 자리를 차지합니다.<br>
+쓰지 않는 서버는 <code style="font-family:monospace">/mcp</code>에서 꺼 두세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 컨텍스트 관리를<br>
+확인, 비우기, 덜 채우기의 3단계로 알아보았습니다.<br>
+<code style="font-family:monospace">/context</code> 하나와 <code style="font-family:monospace">/compact</code>, <code style="font-family:monospace">/clear</code> 둘만 기억하셔도<br>
+시작은 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">대화가 길어졌다 싶을 때 <code style="font-family:monospace">/context</code>부터 열어 보세요.<br>
+작은 확인 습관 하나가 흐려진 답변을 되살리는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 컨텍스트가 가득 차서 곤란했던 적이 있으신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
