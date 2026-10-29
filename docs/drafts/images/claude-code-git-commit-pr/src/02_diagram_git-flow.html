@@ -1,0 +1,22 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<style>.flow.v{flex-direction:column;align-items:stretch;gap:0}
+.flow.v .node{flex-direction:row;justify-content:flex-start;gap:28px;text-align:left;padding:20px 36px}
+.flow.v .node b{min-width:150px}.flow.v .arrow{text-align:center;line-height:1}</style></head><body>
+<div class="canvas">
+  <div class="head"><span class="no">START</span><span class="title">커밋에서 PR까지 4단계</span></div>
+  <div class="flow v">
+    <div class="node"><span class="num">1</span><b>브랜치</b><small>새 브랜치에서 시작</small></div>
+    <div class="arrow">↓</div>
+    <div class="node"><span class="num">2</span><b>커밋</b><small>변경 확인 후 커밋</small></div>
+    <div class="arrow">↓</div>
+    <div class="node"><span class="num">3</span><b>푸시</b><small>원격에 올리기</small></div>
+    <div class="arrow">↓</div>
+    <div class="node"><span class="num">4</span><b>PR</b><small>gh pr create</small></div>
+  </div>
+  <div class="key">
+    <div class="label">KEY POINT</div>
+    <div class="big">말로 부탁하면 순서대로 진행</div>
+    <div class="small">PR까지 맡기려면 <code>gh</code> 로그인 필요</div>
+  </div>
+</div>
+</body></html>
