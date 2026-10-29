@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 노션 MCP 연결 방법 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 노션 MCP 연결 방법 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 노션 MCP 연결 방법 3단계 대표 이미지</td><td>01_thumbnail_notion-mcp.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 노션 MCP 연결 흐름: 클로드, 노션 커넥터, 노션 워크스페이스</td><td>02_diagram_notion-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>Claude 설정의 Connectors 메뉴에서 노션 커넥터를 추가하는 순서</td><td>03_card_add-connector.png</td></tr><tr><td>04</td><td>포인트카드</td><td>노션 로그인 화면에서 워크스페이스를 확인하고 클로드 접근을 허용하는 순서</td><td>04_card_notion-login.png</td></tr><tr><td>05</td><td>포인트카드</td><td>대화에서 노션 커넥터를 켜고 노션에서라고 밝혀 부탁하는 프롬프트 예시</td><td>05_card_notion-prompt.png</td></tr><tr><td>06</td><td>비교표</td><td>노션 커넥터 Tool permissions의 Always allow, Needs approval, Blocked 비교</td><td>06_table_tool-permissions.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 노션 MCP 연결 3단계 요약과 다음 글 권한 요청 줄이기 예고</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드 #Claude #클로드노션연결 #노션MCP #클로드커넥터 #노션연동 #클로드코드 #MCP사용법</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 노션 MCP 연결은 커넥터 추가,<br>
+노션 로그인과 워크스페이스 선택,<br>
+대화에서 켜고 권한 정하기의 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"노션에 정리해 둔 자료를 클로드가 직접 읽어 주면 좋겠는데,<br>
+어디서부터 연결해야 할지 모르겠어요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 노션 MCP 연결</strong>은<br>
+커넥터 목록에서 노션을 추가하고, 노션 계정으로 접근을 허용한 뒤,<br>
+대화에서 노션을 켜고 부탁하면 끝납니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">MCP는 Model Context Protocol의 줄임말로,<br>
+AI가 외부 서비스와 연결되는 방식을 정해 둔 공개 표준입니다.<br>
+노션은 이 표준으로 만든 공식 서버를 제공하고,<br>
+클로드는 이것을 '커넥터'라는 이름으로 붙여 쓰는데요.<br>
+메뉴 이름은 <a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities">Claude 도움말</a>과<br>
+노션 공식 안내를 2026년 10월 29일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> Claude 계정, 노션 계정(워크스페이스 멤버)<br>
+• <strong>사용하는 곳:</strong> Claude 웹·데스크톱 앱, 또는 클로드 코드<br>
+• <strong>난이도:</strong> 초급, 버튼 몇 번과 로그인이면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">노션 쪽에서는 워크스페이스 멤버만 연결할 수 있고,<br>
+게스트 계정은 연결이 거절됩니다.<br>
+팀(Team)·엔터프라이즈 요금제라면 조직 소유자가<br>
+먼저 노션 커넥터를 켜 둬야<br>
+각자 연결할 수 있다는 점도 기억해 두세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 노션 커넥터는 어디서 추가할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 헷갈리는 부분은 바로 메뉴 위치입니다.<br>
+노션 연결은 대화창이 아니라 설정의 커넥터 목록에서 시작하는데요.<br>
+아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. Claude 웹이나 데스크톱 앱에서 <strong>Customize &gt; Connectors</strong>로 갑니다.<br>
+2. <strong>Connectors</strong> 옆의 <code style="font-family:monospace">+</code>를 눌러 목록을 엽니다.<br>
+3. 목록에서 <strong>Notion</strong>을 찾아 설명을 확인합니다.<br>
+4. <strong>Connect</strong>를 누릅니다. (노션 로그인 창이 이어서 열립니다)</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">대화창 왼쪽 아래 <code style="font-family:monospace">+</code> 버튼이나 <code style="font-family:monospace">/</code>를 누르고<br>
+<strong>Connectors &gt; Manage connectors</strong>로 들어가도 같은 목록이 나옵니다.<br>
+한국어 화면에서는 메뉴 이름이 조금 다르게 보일 수 있어요.<br>
+웹이나 데스크톱에서 연결해 두면<br>
+휴대폰 Claude 앱에서도 다음 로그인부터 그대로 쓸 수 있죠.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">클로드 코드에서 연결한다면?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">터미널에서 클로드 코드를 쓰신다면<br>
+명령 한 줄로 노션의 원격 서버를 추가합니다.<br>
+명령어 옵션과 공유 범위는 지난 MCP 사용법 글에서 자세히 다뤘어요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">claude mcp add --transport http notion https://mcp.notion.com/mcp</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그다음 클로드 코드 대화창에 <code style="font-family:monospace">/mcp</code>를 입력하고<br>
+노션을 골라 로그인을 진행하면 됩니다.<br>
+브라우저 창이 열리면 평소처럼 로그인하고 접근을 허용하면 되죠.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 연결을 끊고 싶다면 <strong>Customize &gt; Connectors</strong>에서<br>
+노션을 골라 연결을 해제하면 됩니다.<br>
+클로드 코드라면 <code style="font-family:monospace">claude mcp remove notion</code>으로 지웁니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 노션 로그인과 워크스페이스는 어떻게 고를까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><strong>Connect</strong>를 누르면 노션 로그인 창이 열립니다.<br>
+평소처럼 로그인하고 클로드의 접근을 허용하면 연결이 끝나는데요.<br>
+이때 꼭 확인해야 할 것이 바로 <strong>워크스페이스 선택</strong>입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">노션 승인 화면은 워크스페이스 하나를 기본으로 골라 두는데,<br>
+저도 처음엔 이걸 그대로 넘겼다가<br>
+원하던 곳이 아닌 다른 워크스페이스가 연결됐어요.<br>
+워크스페이스를 여러 개 쓰는 분들이<br>
+이 부분에서 많이들 헷갈리시더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">잘못 연결했다면 Claude 설정에서 노션 연결을 해제하고,<br>
+다시 <strong>Connect</strong>를 눌러 승인 화면에서 원하는 곳을 고르면 됩니다.<br>
+보통 한 번에 워크스페이스 하나만 연결되니<br>
+대화마다 따로 바꿀 수는 없다는 점도 알아 두세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하나 더 알아 둘 점은 접근 범위입니다.<br>
+노션 공식 안내에 따르면 MCP는 연결한 사람의 노션 권한을<br>
+그대로 이어받습니다.<br>
+내가 노션에서 볼 수 있는 페이지라면 클로드도 볼 수 있다는 뜻이죠.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 대화에서 노션은 어떻게 켜고 부탁할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 실제로 일을 맡겨 볼 차례입니다.<br>
+대화창 왼쪽 아래 <code style="font-family:monospace">+</code>나 <code style="font-family:monospace">/</code>를 누르고 <strong>Connectors</strong>에 마우스를 올리면<br>
+연결된 서비스 목록이 나오고, 여기서 노션을 켜거나 끌 수 있습니다.<br>
+이 스위치는 대화마다 따로 적용됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">연결은 해 뒀는데 클로드가 노션을 찾아보지 않는다는 분도 꽤 많더라고요.<br>
+저도 처음엔 연결만 해 두고 평소처럼 물어봤다가<br>
+노션을 들여다보지 않은 답을 받았어요.<br>
+부탁에 "노션에서"처럼 찾을 곳을 밝혀 주라는 조언이<br>
+여러 곳에서 반복되는 것도 그래서입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">노션에서 '주간 회의록' 페이지를 찾아 이번 주 결정 사항만 정리해줘</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">승인 창이 자꾸 뜬다면?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">노션에 페이지를 만들거나 고치게 하면<br>
+클로드가 실행 전에 승인을 묻는 경우가 있습니다.<br>
+읽기는 한 번 허용했는데 쓰기 작업에서 또 물어서<br>
+번거롭다는 이야기가 많은데요.<br>
+작업 종류마다 따로 묻는 경우가 많기 때문이죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><strong>Customize &gt; Connectors</strong>에서 노션을 고르면<br>
+<strong>Tool permissions</strong> 항목이 나옵니다.<br>
+도구 묶음이나 도구 하나마다 아래 세 가지 중 하나를 고를 수 있습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">설정</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">동작</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">어울리는 작업</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Always allow</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">묻지 않고 바로 실행</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">자주 쓰는 읽기·검색</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Needs approval</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">실행 전에 매번 확인</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">페이지 생성·수정</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Blocked</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">아예 쓰지 않음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">맡기고 싶지 않은 작업</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">팀·엔터프라이즈 요금제라면 소유자가 조직 전체에 정한 값이 적용되고,<br>
+사용자는 이를 바꿀 수 없습니다.<br>
+하지만 중요한 건 승인 창을 모두 없애는 것이 아니라<br>
+<strong>되돌리기 어려운 작업만</strong> 확인받는 것이겠죠.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 노션 MCP 연결을<br>
+커넥터 추가, 로그인과 워크스페이스 선택, 대화에서 켜고 권한 정하기의<br>
+3단계로 알아보았습니다.<br>
+연결은 <strong>Customize &gt; Connectors</strong>, 부탁할 때는 "노션에서" 한마디만<br>
+기억하셔도 시작은 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에는 회의록 요약처럼 읽기만 하는 일부터 맡겨 보세요.<br>
+작은 연결 하나가 노션을 오가는 수고를 덜어 주는 법이죠!<br>
+다음 글에서는 클로드의 권한 요청 창이 매번 뜨지 않게 하는 방법을<br>
+정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 노션의 어떤 페이지부터 클로드에게 맡겨 보고 싶으신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
