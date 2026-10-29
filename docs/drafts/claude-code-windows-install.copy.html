@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 윈도우 설치 방법 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 윈도우 설치 방법 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 윈도우 설치 방법 3단계 대표 이미지</td><td>01_thumbnail_windows-install.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 윈도우 설치 흐름: 명령 실행, 새 창에서 확인, 실행과 로그인</td><td>02_diagram_install-flow.png</td></tr><tr><td>03</td><td>비교표</td><td>클로드 코드 윈도우 설치 방식 PowerShell, CMD, WinGet의 장점과 주의점 비교</td><td>03_table_install-methods.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 윈도우 설치 확인 명령 claude --version과 claude doctor, PATH 폴더 정리</td><td>04_card_verify.png</td></tr><tr><td>05</td><td>포인트카드</td><td>클로드 코드 윈도우 첫 실행 순서: 폴더 이동, claude 입력, 브라우저 로그인</td><td>05_card_first-run.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 윈도우 설치 3단계 요약과 다음 글 요금제·사용량 총정리 예고</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드설치 #클로드코드윈도우 #윈도우설치 #클로드코드사용법 #AI코딩도구 #바이브코딩</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 윈도우 설치는 명령 실행,<br>
+새 창에서 확인, 첫 실행과 로그인의 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"윈도우에 깔아 보려는데 어디에 뭘 입력하는지 모르겠어요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 윈도우 설치</strong>는<br>
+PowerShell에 명령 한 줄을 붙여 넣고,<br>
+새 창에서 <code style="font-family:monospace">claude --version</code>으로 확인한 뒤,<br>
+<code style="font-family:monospace">claude</code>를 실행해 로그인하면 끝납니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">관리자 권한으로 실행할 필요도 없고,<br>
+WSL이나 Node.js를 먼저 깔지 않아도 됩니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면 설치부터 첫 대화까지<br>
+혼자 해 보실 수 있습니다.<br>
+설치 명령과 요구 사항은 <a href="https://code.claude.com/docs/en/setup">Claude Code 공식 문서</a>를<br>
+2026년 10월 29일에 확인해 정리했습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 윈도우 10(1809 이상) PC, 유료 Claude 요금제<br>
+• <strong>사양:</strong> 메모리 4GB 이상, x64 또는 ARM64 프로세서<br>
+• <strong>난이도:</strong> 초급, 명령어를 붙여 넣을 수만 있으면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">요금제는 Pro, Max, Team, Enterprise나 Console 계정이 필요합니다.<br>
+공식 문서에 따르면 무료 요금제에는 클로드 코드가 포함되지 않죠.<br>
+요금제별 차이는 다음 글에서 따로 정리해 드릴게요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">검색해 보면 Node.js나 WSL부터 깔라는<br>
+예전 글이 많아서 헷갈리시죠?<br>
+저도 처음엔 순서를 몰라 이것저것 먼저 설치했는데,<br>
+지금은 기본 설치 명령 하나면 따로 준비할 프로그램이 없더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><a href="https://git-scm.com/downloads/win">Git for Windows</a>는 선택 사항이지만 깔아 두기를 권합니다.<br>
+이게 있으면 클로드 코드가 Git Bash로 명령을 실행할 수 있고,<br>
+없으면 PowerShell로 대신 실행합니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 설치 명령은 어디에 입력할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 설치할 때 가장 많이 실수하는 부분은 바로 창의 종류입니다.<br>
+저도 처음엔 명령을 CMD 창에 붙여 넣었다가<br>
+<code style="font-family:monospace">'irm' is not recognized</code>라는 메시지를 보고 당황했어요.<br>
+PowerShell과 CMD를 헷갈려 막히는 분이 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 시작 메뉴에서 "PowerShell"을 검색해 엽니다.<br>
+2. 줄 맨 앞이 <code style="font-family:monospace">PS C:\</code>로 시작하는지 확인합니다.<br>
+3. 아래 명령을 붙여 넣고 Enter를 누릅니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">irm https://claude.ai/install.ps1 | iex</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치하는 동안에는 진행 표시가 나오지 않습니다.<br>
+(멈춘 것처럼 보여도 창을 닫지 말고 끝날 때까지 기다려 주세요.)<br>
+CMD를 쓰고 싶다면 줄 앞에 <code style="font-family:monospace">PS</code> 없이 <code style="font-family:monospace">C:\</code>만 보이는 창에서<br>
+아래 명령을 대신 씁니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">반대로 이 명령을 PowerShell에 넣으면<br>
+<code style="font-family:monospace">The token '&amp;&amp;' is not a valid statement separator</code>가 뜹니다.<br>
+창 종류가 헷갈린다면 어느 창에서나 되는 WinGet도 있습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">winget install Anthropic.ClaudeCode</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">설치 방식</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">주의점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>PowerShell</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">공식 권장, 자동 업데이트</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">CMD 창에서는 실행 안 됨</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>CMD</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">PowerShell이 낯선 분께 편함</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">PowerShell 창에서는 오류</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>WinGet</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">창 종류와 상관없이 한 줄</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">자동 업데이트가 안 됨</td></tr></table>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> WinGet으로 설치했다면<br>
+<code style="font-family:monospace">winget upgrade Anthropic.ClaudeCode</code>로 직접 업데이트하세요.<br>
+PowerShell이나 CMD 명령으로 깐 기본 설치는<br>
+백그라운드에서 알아서 최신 버전으로 바뀝니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 설치가 잘 됐는지 어떻게 확인할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본 설치가 끝났다면 이제 제대로 깔렸는지 확인해 볼 차례입니다.<br>
+여기서 꼭 기억할 점은 <strong>새 창</strong>을 열어야 한다는 것입니다.<br>
+설치에 쓴 창은 예전 경로 정보를 그대로 쥐고 있기 때문이죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치가 끝났다고 같은 창에서 바로 <code style="font-family:monospace">claude</code>를 입력했다가<br>
+"인식할 수 없다"는 메시지를 받는 경우가 많더라고요.<br>
+저도 그 메시지를 보고 설치가 실패한 줄 알았는데,<br>
+창을 닫고 새로 여니 그대로 실행됐어요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">새 PowerShell 창을 열고 아래 명령을 입력해 보세요.<br>
+버전 번호가 나오면 설치가 끝난 것입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">claude --version</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">더 꼼꼼히 보고 싶다면 <code style="font-family:monospace">claude doctor</code>를 실행하면 됩니다.<br>
+대화를 시작하지 않고 설치 상태와 설정 오류,<br>
+고칠 방법이 담긴 경고까지 한 번에 보여 줍니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">새 창에서도 인식이 안 된다면?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치 폴더가 PATH(명령을 찾는 폴더 목록)에 빠진 경우입니다.<br>
+윈도우에서는 <code style="font-family:monospace">%USERPROFILE%\.local\bin</code> 폴더에<br>
+<code style="font-family:monospace">claude.exe</code>가 설치됩니다.<br>
+PowerShell에 아래 두 줄을 차례로 넣으면 이 폴더가 추가됩니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">$currentPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
+[Environment]::SetEnvironmentVariable('PATH', "$currentPath;$env:USERPROFILE\.local\bin", 'User')</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">입력한 뒤에는 창을 닫고 새로 열어 다시 확인합니다.<br>
+VS Code 같은 편집기 안의 터미널을 쓰고 있다면<br>
+편집기도 껐다 켜야 바뀐 경로가 적용됩니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 첫 실행과 로그인은 어떻게 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이제 실제로 클로드 코드를 켜 볼 차례입니다.<br>
+작업할 프로젝트 폴더로 이동한 다음 <code style="font-family:monospace">claude</code>를 입력하면 됩니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">cd C:\Users\내이름\my-project
+claude</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 실행하면 브라우저 창이 열리면서 로그인을 요청합니다.<br>
+평소 쓰는 Claude 계정으로 로그인하고 허용하면<br>
+터미널로 돌아와 대화를 시작할 수 있죠.<br>
+로그인이 끝나면 말로 부탁해 보세요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">이 폴더에 어떤 파일이 있는지 보고 프로젝트 구조를 설명해줘</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">Git for Windows를 깔았는데 클로드 코드가 Git Bash를 못 찾는다면<br>
+설정 파일 <code style="font-family:monospace">settings.json</code>에 위치를 직접 적어 줍니다.<br>
+기본 설치 위치라면 아래처럼 쓰면 됩니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "env": {
+    "CLAUDE_CODE_GIT_BASH_PATH": "C:\\Program Files\\Git\\bin\\bash.exe"
+  }
+}</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 이것저것 설정을 바꾸는 것이 아니라<br>
+<strong>설치 방식 하나만</strong> 유지하는 것이겠죠.<br>
+여러 방법으로 겹쳐 깔면 엉뚱한 버전이 실행될 수 있어서,<br>
+공식 문서도 기본 설치 하나만 남기라고 안내합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">리눅스 도구를 주로 쓰거나 샌드박스 기능이 필요하다면<br>
+WSL 2 안에 설치하는 방법도 있습니다.<br>
+이때는 WSL 터미널에서 리눅스용 명령으로 설치하고,<br>
+실행도 WSL 터미널 안에서만 합니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 윈도우 설치 방법을<br>
+명령 실행, 새 창에서 확인, 첫 실행과 로그인의 3단계로 알아보았습니다.<br>
+<code style="font-family:monospace">PS C:\</code> 창인지 확인하는 것과 설치 뒤 새 창을 여는 것,<br>
+이 두 가지만 기억하셔도 대부분의 막힘은 피할 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치가 끝났다면 작은 폴더 하나에서 먼저 말을 걸어 보세요.<br>
+첫 대화 한 번이 낯선 도구를 내 도구로 바꾸는 법이죠!<br>
+다음 글에서는 클로드 코드 요금제와 사용량을<br>
+한눈에 비교할 수 있게 총정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치하다 막힌 메시지가 있다면 그대로 댓글로 남겨 주세요.<br>
+함께 원인을 찾아보겠습니다. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
