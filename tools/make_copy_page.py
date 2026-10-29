@@ -3,7 +3,8 @@
 
 사용법: make_copy_page.py <글.md> [출력.html]
 규칙은 docs/guides/style-guide.md 4-3(줄 나누기)과 9장(붙여넣기 서식)을 따른다.
-줄 폭이 40자를 넘거나 마지막 줄이 8자 미만이면 WARN을 내고 종료 코드 1로 끝난다.
+줄 폭이 40자를 넘거나 마지막 줄이 8자 미만이거나, 이미지 폴더(images/<글 이름>/)가 있는데 사진 번호에 맞는 파일이 없으면
+WARN을 내고 종료 코드 1로 끝난다.
 """
 import html
 import re
@@ -12,7 +13,6 @@ from pathlib import Path
 
 LIMIT = 40  # 한 줄 폭 환산 상한
 TAIL = 8  # 문장 마지막 줄 최소 폭
-KIND = {"썸네일": "thumbnail", "포인트카드": "card", "다이어그램": "diagram", "비교표": "table"}
 
 
 def width(s: str) -> float:
@@ -188,12 +188,18 @@ document.getElementById('copy-body').onclick=function(){{
 def main(src: Path, out: Path) -> int:
     md = src.read_text(encoding="utf-8")
     title, tags, photos, body, warns = convert(md)
+    imgdir = src.parent / "images" / src.stem
+    def image_name(n):
+        found = sorted(f for f in imgdir.glob(f"{n:02d}_*") if f.suffix in (".png", ".jpg")) if imgdir.is_dir() else []
+        return found[0].name if found else None
+    if imgdir.is_dir():  # 이미지 폴더가 있으면 마커 개수만큼 파일이 있어야 한다
+        warns += [f"사진 {n:02d} 이미지 파일이 없습니다 ({imgdir}/{n:02d}_*)" for n in range(1, len(photos) + 1) if not image_name(n)]
     rows = "".join(
-        f"<tr><td>{n:02d}</td><td>{esc(k)}</td><td>{esc(d)}</td><td>{n:02d}_{KIND.get(k, 'image')}_…</td></tr>"
+        f"<tr><td>{n:02d}</td><td>{esc(k)}</td><td>{esc(d)}</td><td>{esc(image_name(n) or '(아직 없음)')}</td></tr>"
         for n, (k, d) in enumerate(photos, 1)
     ) or '<tr><td colspan="4">이미지 마커가 없습니다</td></tr>'
     photo_table = f"<table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr>{rows}</table>"
-    warn_html = ('<span class="ok">문제 없음: 40자 초과 줄과 8자 미만 꼬리줄이 없습니다.</span>' if not warns
+    warn_html = ('<span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span>' if not warns
                  else "".join(f'<div class="warn">{esc(w)}</div>' for w in warns))
     out.write_text(PAGE.format(title=esc(title), tags=esc(tags), photo_table=photo_table, warns=warn_html, body=body), encoding="utf-8")
     print(f"{'OK  ' if not warns else 'WARN'} {out} (사진 자리 {len(photos)}개, 태그 {len(tags.split())}개)")
