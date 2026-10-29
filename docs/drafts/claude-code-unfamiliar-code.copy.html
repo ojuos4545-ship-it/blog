@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드로 낯선 코드 파악하는 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드로 낯선 코드 파악하는 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드로 낯선 코드 파악하는 3단계 대표 이미지</td><td>01_thumbnail_unfamiliar-code.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드로 낯선 코드를 파악하는 지도 받기, 기능 따라가기, 확인과 기록 3단계 흐름</td><td>02_diagram_explore-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 Step 1 전체 구조를 넓게 묻는 질문 순서와 예시</td><td>03_card_overview.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 Step 2 기능 하나를 찾기, 연결, 흐름 순서로 따라가는 질문</td><td>04_card_trace-feature.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 코드로 낯선 코드를 찾을 때 그냥 질문, @ 파일 짚기, 서브에이전트 비교</td><td>05_table_search-methods.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 Step 3 설명의 근거 확인과 /init으로 CLAUDE.md 남기기</td><td>06_card_verify.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 코드로 낯선 코드 파악하는 3단계 요약과 다음 글 에러 해결 3단계 예고</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #코드베이스파악 #코드분석 #클로드코드사용법 #신규프로젝트온보딩 #AI코딩도구 #바이브코딩</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드로 낯선 코드 파악은<br>
+전체 지도 받기, 기능 하나 따라가기,<br>
+근거 확인하고 기록하기의 3단계면 충분합니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"새 프로젝트에 들어왔는데 파일이 너무 많아서<br>
+어디부터 열어 봐야 할지 모르겠어요" 하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드로 낯선 코드 파악</strong>은<br>
+전체 구조를 넓게 묻고, 기능 하나를 끝까지 따라간 뒤,<br>
+설명의 근거를 확인해 기록으로 남기면 끝납니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 문서 하나 없는 프로젝트를 넘겨받았을 때<br>
+어디부터 봐야 할지 몰라 파일만 이리저리 열어 봤어요.<br>
+같은 이유로 며칠씩 코드 읽기에만 매달리는 분이 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘 이 글 하나만 끝까지 읽으시면 처음 보는 저장소도<br>
+순서대로 질문하며 혼자 파악하실 수 있습니다.<br>
+질문 예시와 기능 설명은 <a href="https://code.claude.com/docs/en/common-workflows">Claude Code 공식 문서</a>를<br>
+2026년 10월 29일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 파악할 프로젝트 폴더<br>
+• <strong>권장 설정:</strong> 읽기만 하는 Plan 모드<br>
+• <strong>난이도:</strong> 초급, 터미널에서 폴더를 옮길 줄 알면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">코드를 파악하는 동안에는 Plan 모드를 켜 두시길 권합니다.<br>
+Plan 모드에서는 클로드가 파일을 읽고 계획만 내놓을 뿐,<br>
+내가 승인하기 전까지는 아무것도 고치지 않거든요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">claude --permission-mode plan</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이미 대화를 시작했다면 <code style="font-family:monospace">Shift+Tab</code>을 몇 번 눌러<br>
+상태 표시줄에 <code style="font-family:monospace">⏸ plan mode on</code>이 보이게 하면 됩니다.<br>
+전체 흐름은 아래 그림처럼 세 단계로 나뉩니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 낯선 코드의 전체 구조는 어떻게 물어볼까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 할 일은 프로젝트 맨 위 폴더로 가서<br>
+클로드 코드를 실행하는 것입니다.<br>
+공식 문서가 안내하는 첫 단계도 바로 이것인데요,<br>
+중간 폴더가 아니라 맨 위에서 시작해야 전체를 보고 답해 줍니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">cd 프로젝트-폴더
+claude</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">첫 질문은 넓게 던집니다.<br>
+공식 문서도 넓은 질문으로 시작해<br>
+특정 영역으로 좁혀 가라고 안내하는데요.<br>
+아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 전체 개요를 묻습니다.<br>
+2. 구조와 설계 방식을 묻습니다.<br>
+3. 핵심 데이터와 프로젝트 용어를 묻습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">이 코드베이스 전체 구조를 설명해줘
+여기서 쓰는 주요 설계 패턴을 알려줘
+핵심 데이터 모델은 뭐야?
+이 프로젝트에서만 쓰는 용어를 표로 정리해줘</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">(이때 주의할 점은 한 번에 다 묻지 않는 것입니다.<br>
+답을 하나씩 읽으면서 모르는 단어가 나오면<br>
+그 단어를 다음 질문으로 이어 가는 편이 이해가 빠릅니다.)</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 코딩 규칙도 함께 물어보세요.<br>
+"이 프로젝트의 이름 짓기와 폴더 규칙을 알려줘"처럼 물으면<br>
+나중에 코드를 고칠 때 기존 방식과 어긋날 일이 줄어듭니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 기능 하나는 어떻게 따라갈까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 기능 하나를 골라 끝까지 따라가 볼 차례입니다.<br>
+전체 그림만 봐서는 실제로 코드가 어떻게 움직이는지<br>
+잘 와닿지 않기 때문이죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">로그인처럼 내가 맡을 일과 가까운 기능을 고른 뒤,<br>
+찾기, 연결 관계, 실행 흐름 순서로 묻습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">사용자 로그인을 처리하는 파일들을 찾아줘
+이 파일들이 서로 어떻게 연결되는지 설명해줘
+로그인 과정을 화면부터 데이터베이스까지 따라가 줘</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음엔 "이메일 검사하는 코드 찾아줘"처럼 막연하게 물었다가<br>
+여기저기 뒤지느라 답이 늦어지는 경우가 많더라고요.<br>
+폴더 이름이나 프로젝트에서 쓰는 용어를 함께 적으면<br>
+찾는 범위가 좁아져서 답도 빨라집니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">파일을 직접 짚어 줄 수도 있을까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이미 볼 파일을 안다면 <code style="font-family:monospace">@</code> 뒤에 경로를 적어 주세요.<br>
+파일 내용이 대화에 바로 들어가서<br>
+클로드가 찾아 읽는 과정을 건너뜁니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">@src/utils/auth.js 의 로직을 설명해줘</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">폴더를 짚으면 파일 내용이 아니라 파일 목록이 들어갑니다.<br>
+그리고 넓은 범위를 뒤지는 검색은 클로드가 알아서<br>
+읽기 전용 Explore 에이전트에게 맡기는데요.<br>
+직접 맡기고 싶다면 "서브에이전트로 조사해줘"라고 말하면 됩니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">방식</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">주의할 점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>그냥 질문</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">위치를 몰라도 됨</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막연하면 오래 뒤짐</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>@ 파일 짚기</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">바로 그 파일을 읽음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">경로를 알아야 함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>서브에이전트</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">긴 검색 결과가 대화에 안 쌓임</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">사용량이 더 듦</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 클로드 코드의 설명은 어떻게 확인할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 설명을 듣는 것이 아니라<br>
+<strong>그 설명이 실제 코드와 맞는지 확인하는 것</strong>이겠죠.<br>
+클로드가 직접 읽지 않은 부분까지 그럴듯하게 이어 붙여<br>
+확신에 찬 말투로 설명했다는 사례가 꽤 많이 올라와 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 설명만 믿고 넘어갔다가 실제 파일을 열어 보고서야<br>
+내용이 다르다는 걸 알고 다시 찾아본 적이 있어요.<br>
+그래서 지금은 중요한 설명마다 근거를 꼭 묻습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 설명의 근거가 된 파일과 함수 이름을 묻습니다.<br>
+2. 짐작한 부분과 코드에서 확인한 부분을 나눠 달라고 합니다.<br>
+3. 테스트가 있다면 직접 실행해서 동작을 확인하게 합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">방금 설명에서 코드로 확인한 것과 짐작한 것을 나눠서,
+근거가 된 파일 경로와 함께 알려줘</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">파악한 내용은 어디에 남길까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">확인이 끝난 내용은 <code style="font-family:monospace">CLAUDE.md</code>에 남겨 두면 좋습니다.<br>
+<code style="font-family:monospace">/init</code>을 입력하면 코드베이스를 바탕으로 첫 버전을 만들어 주고,<br>
+이 파일은 다음 세션부터 자동으로 읽힙니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">다만 클로드가 코드에서 스스로 알아낼 수 있는 구조 설명은 지우고,<br>
+코드에 없는 정보만 남기는 것이 공식 권장입니다.<br>
+배포 절차나 테스트 실행 명령처럼 코드만 봐서는 모르는 것들이죠.<br>
+분량은 200줄 아래로 유지하라고 안내합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">다음 날 이어서 파악하고 싶다면 <code style="font-family:monospace">claude --continue</code>로<br>
+같은 폴더의 가장 최근 대화를 다시 열면 됩니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드로 낯선 코드 파악하는 방법을<br>
+전체 지도 받기, 기능 하나 따라가기, 근거 확인하고 기록하기의<br>
+3단계로 알아보았습니다.<br>
+넓게 묻고 좁혀 가되, 중요한 설명은 파일로 확인하는 것만 기억하셔도 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 보는 코드도 질문 순서만 잡히면 금방 익숙해지기 마련이죠!<br>
+다음 글에서는 클로드 코드로 에러를 해결하는<br>
+3단계를 정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 낯선 프로젝트에서 어떤 부분이 가장 막막하셨나요?<br>
+궁금한 점이 있다면 편하게 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
