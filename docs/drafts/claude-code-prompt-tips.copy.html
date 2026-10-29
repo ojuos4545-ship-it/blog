@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 요청 잘 쓰는 법 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 요청 잘 쓰는 법 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 요청 잘 쓰는 법 3단계 대표 이미지</td><td>01_thumbnail_prompt.png</td></tr><tr><td>02</td><td>다이어그램</td><td>구체적인 요청, 클로드의 작업과 검사, 결과 확인으로 이어지는 요청 흐름</td><td>02_diagram_prompt-flow.png</td></tr><tr><td>03</td><td>비교표</td><td>클로드 코드 요청에서 막연한 요청과 구체적인 요청의 차이 비교</td><td>03_table_vague-specific.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드에 줄 수 있는 확인 기준 테스트, 빌드, 린터와 요청 예시</td><td>04_card_check.png</td></tr><tr><td>05</td><td>포인트카드</td><td>결과가 엇나갈 때 쓰는 Esc, /rewind, /clear 세 가지와 두 번 실패 규칙</td><td>05_card_steer.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 요청 잘 쓰는 법 3단계 요약, 구체적으로 쓰기와 확인 기준과 흐름 잡기</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드프롬프트 #프롬프트작성법 #AI코딩도구 #바이브코딩 #AI에이전트</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 요청 잘 쓰는 법은 구체적으로 쓰고,<br>
+확인할 기준을 주고, 흐름이 틀어지면 바로 잡는 3단계입니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"분명히 시켰는데 엉뚱한 결과가 나와요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 요청 잘 쓰는 법</strong>은<br>
+파일과 증상, 완료된 모습을 먼저 알려 주고,<br>
+확인할 기준을 함께 주는 것입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">요청(프롬프트)이 조금만 달라져도 결과는 꽤 달라집니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면<br>
+고쳐 달라고 다시 말하는 횟수를 확 줄이실 수 있습니다.<br>
+내용은 <a href="https://code.claude.com/docs/en/best-practices">Claude Code 공식 모범 사례 문서</a>를<br>
+기준으로 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 알아둘 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 작업할 프로젝트<br>
+• <strong>소요 시간:</strong> 요청 하나 고쳐 쓰는 데 금방입니다<br>
+• <strong>난이도:</strong> 초급, 대화만 할 줄 알면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서에 따르면 클로드는 코드를 읽고<br>
+파일 구조와 관례를 스스로 찾아냅니다.<br>
+대신 회의에서 정한 결정이나 한 사람만 아는 배포 절차처럼<br>
+코드에 없는 정보는 알 수가 없죠.<br>
+그래서 좋은 요청은 클로드가 볼 수 없는 것을 알려 주는 요청입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 "버그 고쳐 줘"처럼 짧게 맡겼다가<br>
+생각지 못한 파일까지 바뀐 적이 있어요.<br>
+막연한 요청이 엉뚱한 수정으로 이어지는 경우가 꽤 많더라고요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 요청은 얼마나 구체적이어야 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 쓸 때 가장 많이 놓치는 부분은 완료된 모습입니다.<br>
+어떤 파일인지, 어떤 증상인지,<br>
+무엇이 되면 끝인지를 먼저 적어 주세요.<br>
+두 가지 방법 중 원하는 쪽이 있다면 그것도 미리 말해야 합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서의 예시를 우리말로 옮기면 아래와 같습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">이렇게 말하기보다 👎</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">이렇게 말해 보세요 👍</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">로그인 버그 고쳐 줘</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">세션이 만료된 뒤 로그인이 실패한다는 제보가 있어. src/auth/의 토큰 갱신 부분을 보고, 문제를 재현하는 실패 테스트를 먼저 쓴 다음 고쳐 줘</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">달력 위젯 추가해 줘</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">HotDogWidget.php의 패턴을 따라 월을 고르고 연도를 넘길 수 있는 달력 위젯을 만들어 줘. 새 라이브러리는 쓰지 마</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이미 가진 자료가 있다면 말로 설명하지 말고 그대로 건네세요.<br>
+파일은 <code style="font-family:monospace">@</code> 뒤에 경로를 적으면 내용이 함께 들어가고,<br>
+화면 디자인이나 오류는 스크린샷을 붙여 넣으면 됩니다.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 클로드는 요청을 보수적으로 읽어서<br>
+조건을 만족하는 가장 작은 것을 만드는 편입니다.<br>
+빈 화면, 오류 처리까지 원한다면 그 범위를 직접 적어 주세요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 클로드가 스스로 확인할 기준은 어떻게 줄까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 확인할 기준을 붙여 볼 차례입니다.<br>
+클로드는 일이 끝나 보이면 멈추는데,<br>
+통과와 실패를 알려 주는 검사가 없으면<br>
+"끝나 보인다"는 것만으로 판단할 수밖에 없습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그럴듯해 보이는데 막상 돌려 보면<br>
+빠진 부분이 있는 결과를 받는 경우가 많더라고요.<br>
+검사가 있으면 클로드가 직접 돌려 보고,<br>
+깨진 곳을 고친 뒤 다시 확인합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 테스트 파일<br>
+• 빌드 결과(종료 코드)<br>
+• 린터<br>
+• 결과를 기준 파일과 비교하는 스크립트</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">요청 끝에 한 줄만 붙여도 됩니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">작업이 끝나면 auth 테스트를 돌리고, 통과할 때까지 계속해 줘</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"테스트 다 통과했어요"라는 말만으로는 알 수 있는 게 적습니다.<br>
+실행한 명령과 그 출력을 함께 보여 달라고 하면<br>
+결과를 다시 돌려 보지 않아도 바로 확인할 수 있습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 결과가 엇나가면 어떻게 다시 잡을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서는 처음 1분을 지켜보다가<br>
+방향이 틀어지면 바로 멈추라고 권합니다.<br>
+흐름을 잡는 방법은 세 가지만 알면 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. <code style="font-family:monospace">Esc</code>: 작업을 바로 멈춥니다. (그때까지 한 일은 남습니다)<br>
+2. <code style="font-family:monospace">/rewind</code>: 코드와 대화를 이전 요청 시점으로 되돌립니다.<br>
+3. <code style="font-family:monospace">/clear</code>: 대화를 비우고 새로 시작합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">같은 부분을 몇 번이고 고쳐 달라고 하다가<br>
+오히려 더 꼬이는 일도 흔하다고 해요.<br>
+같은 수정을 두 번 했는데도 틀렸다면 세 번째로 고치기보다<br>
+<code style="font-family:monospace">/clear</code> 후 배운 점을 담아 새 요청을 쓰는 편이 낫습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 처음부터 원하는 것을 정리하는 것이겠죠.<br>
+무엇을 원하는지 아직 모르겠다면<br>
+클로드에게 먼저 질문해 달라고 요청해 보세요.<br>
+답을 하다 보면 요청에 들어갈 내용이 자연스럽게 정리됩니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 요청 잘 쓰는 법을<br>
+구체적으로 쓰기, 확인 기준 주기, 흐름 잡기의 3단계로 알아보았습니다.<br>
+다음 요청 하나에 파일과 완료된 모습만 더해 보셔도<br>
+결과가 달라지는 걸 느끼실 수 있을 거예요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">요청 한 줄을 다듬는 습관이 다시 고치는 시간을 줄여 주는 법이죠!<br>
+작은 차이가 쌓이면 클로드와 일하는 방식이 훨씬 편해집니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 요청을 쓸 때 어떤 부분이 가장 어려우신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
