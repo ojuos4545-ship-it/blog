@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 반복 작업 자동화 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 반복 작업 자동화 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 반복 작업 자동화 3단계 대표 이미지</td><td>01_thumbnail_automation.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 반복 작업 자동화의 스킬, 훅, /loop 3단계 흐름</td><td>02_diagram_automation-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 Step 1 스킬 파일 위치와 /이름 실행, $ARGUMENTS 사용법</td><td>03_card_make-skill.png</td></tr><tr><td>04</td><td>비교표</td><td>클로드 코드 반복 작업 자동화에서 CLAUDE.md·스킬과 훅의 차이 비교</td><td>04_table_claude-md-vs-hook.png</td></tr><tr><td>05</td><td>포인트카드</td><td>클로드 코드 Step 2 훅 설정 위치, 실행 시점, /hooks 확인 순서</td><td>05_card_hook-setup.png</td></tr><tr><td>06</td><td>비교표</td><td>클로드 코드 Step 3 /loop, 데스크톱 예약 작업, 클라우드 예약 작업 비교</td><td>06_table_schedule.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 코드 반복 작업 자동화 3단계 요약과 다음 글 노션 MCP 연결 3단계 예고</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드자동화 #반복작업자동화 #클로드코드스킬 #클로드코드훅 #AI코딩도구 #업무자동화</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 반복 작업 자동화는<br>
+자주 하는 부탁은 스킬로, 매번 해야 하는 일은 훅으로,<br>
+정해진 시간에 할 일은 <code style="font-family:monospace">/loop</code>로 맡기면 됩니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"매번 같은 부탁을 길게 다시 쓰는 게 너무 번거로워요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 반복 작업 자동화</strong>는<br>
+자주 쓰는 부탁을 스킬로 저장하고,<br>
+빠지면 안 되는 일은 훅으로 걸고,<br>
+시간에 맞춰 할 일은 <code style="font-family:monospace">/loop</code>로 돌리는 3단계면 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 처음엔 같은 요청 문장을 메모장에 모아 두고<br>
+쓸 때마다 복사해서 붙이곤 했어요.<br>
+이렇게 같은 부탁을 계속 다시 쓰다가<br>
+명령으로 저장하는 방법을 찾았다는 후기가 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘 이 글 하나만 끝까지 읽으시면 반복되는 일을<br>
+어디에 맡겨야 하는지 직접 고르실 수 있습니다.<br>
+설정 방법은 <a href="https://code.claude.com/docs/en/skills">Claude Code 공식 문서</a>를<br>
+2026년 10월 29일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 작업할 프로젝트 폴더<br>
+• <strong>먼저 할 일:</strong> 일주일 동안 반복한 부탁 적어 보기<br>
+• <strong>난이도:</strong> 초급, 파일을 만들고 저장할 줄 알면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">반복 작업이라고 다 같은 방법으로 맡기지는 않습니다.<br>
+내가 부탁할 때 하는 일인지, 늘 빠짐없이 해야 하는 일인지,<br>
+정해진 시간에 할 일인지에 따라 도구가 달라지는데요.<br>
+세 단계의 흐름을 한 장으로 먼저 보고 넘어가겠습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 자주 하는 부탁은 어떻게 명령으로 만들까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 할 때 가장 많이 하는 실수는<br>
+긴 부탁 문장을 매번 새로 쓰는 것입니다.<br>
+이런 부탁은 스킬로 저장해 두면 <code style="font-family:monospace">/이름</code> 한 번으로 꺼내 쓸 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 프로젝트에 <code style="font-family:monospace">.claude/skills/&lt;이름&gt;/</code> 폴더를 만듭니다.<br>
+2. 그 안에 <code style="font-family:monospace">SKILL.md</code> 파일을 만들고 부탁 내용을 적습니다.<br>
+3. 클로드 코드에서 <code style="font-family:monospace">/이름</code>을 입력해 실행합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">GitHub 이슈를 고치는 부탁을 예로 들면 아래와 같습니다.<br>
+명령 뒤에 적은 내용은 <code style="font-family:monospace">$ARGUMENTS</code> 자리에 그대로 들어갑니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">---
+name: fix-issue
+description: GitHub 이슈 번호를 받아 우리 규칙대로 고친다
+disable-model-invocation: true
+---
+
+GitHub 이슈 $ARGUMENTS 를 읽고, 우리 코딩 규칙대로 고쳐줘.</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이렇게 저장하면 <code style="font-family:monospace">/fix-issue 123</code>만 입력해도<br>
+"이슈 123을 읽고 고쳐줘"라는 부탁이 전달됩니다.<br>
+모든 프로젝트에서 쓰고 싶다면<br>
+<code style="font-family:monospace">~/.claude/skills/</code>에 저장하면 되죠.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 배포처럼 결과가 남는 일은<br>
+<code style="font-family:monospace">disable-model-invocation: true</code>를 꼭 넣어 두세요.<br>
+이 줄이 있으면 내가 직접 입력할 때만 실행되고,<br>
+없으면 설명을 보고 클로드가 알아서 꺼내 쓸 수도 있습니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 매번 해야 하는 일은 어떻게 자동으로 돌릴까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 빠지면 안 되는 일을 맡길 차례입니다.<br>
+저는 <code style="font-family:monospace">CLAUDE.md</code>에 "파일을 고친 뒤엔 포맷터를 돌려"라고 적어 뒀는데,<br>
+대화가 길어지면 가끔 그냥 넘어가더라고요.<br>
+지침은 읽는데 매번 지키지는 않는다는 이야기가 여러 곳에서 나옵니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서도 <code style="font-family:monospace">CLAUDE.md</code>와 스킬은 클로드가 읽고 판단하는 지침이라<br>
+지킨다는 보장이 없다고 설명합니다.<br>
+반면 <strong>훅</strong>은 정해진 순간마다 클로드 코드가 직접 실행하는 명령이라,<br>
+클로드가 기억하든 말든 매번 돌아갑니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">구분</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">CLAUDE.md·스킬</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">훅</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>누가 실행</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">클로드가 읽고 판단</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">클로드 코드가 매번 실행</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>맞는 일</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">지침, 선호, 팀 절차</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">예외 없는 규칙</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>예시</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이름 짓는 방식</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">고친 파일마다 포맷</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">훅은 설정 파일의 <code style="font-family:monospace">hooks</code> 칸에 적습니다.<br>
+아래는 클로드가 파일을 고치거나 만들 때마다<br>
+Prettier로 모양을 정리하는 공식 문서의 예시입니다.<br>
+프로젝트의 <code style="font-family:monospace">.claude/settings.json</code>에 넣으면 됩니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [{ "type": "command", "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write" }]
+      }
+    ]
+  }
+}</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">PostToolUse</code>는 도구를 쓴 직후라는 뜻이고,<br>
+<code style="font-family:monospace">Edit|Write</code>는 파일을 고치거나 만들 때만 돌리라는 조건입니다.<br>
+JSON이 어렵다면 "고친 파일마다 prettier를 돌리는 훅을 만들어줘"처럼<br>
+말로 부탁해도 되고, 만든 뒤에는 <code style="font-family:monospace">/hooks</code>로 목록을 확인합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">(이때 주의할 점은 훅을 꼭 필요한 규칙에만 쓰는 것입니다.<br>
+훅은 내 컴퓨터에서 명령을 그대로 실행하고,<br>
+늘어날수록 관리할 것도 많아지기 때문입니다.)</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 정해진 시간에 할 일은 어떻게 맡길까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">배포가 끝났는지, CI가 통과했는지 몇 분마다 확인하는 일도 있죠.<br>
+이럴 때는 <code style="font-family:monospace">/loop</code> 뒤에 간격과 부탁을 적으면<br>
+열려 있는 세션에서 그 부탁을 정해진 간격마다 다시 실행합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">/loop 5m 배포가 끝났는지 확인하고 결과를 알려줘</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">간격은 <code style="font-family:monospace">s</code>, <code style="font-family:monospace">m</code>, <code style="font-family:monospace">h</code>, <code style="font-family:monospace">d</code> 단위로 적고,<br>
+간격을 빼면 클로드가 상황을 보고 다음 확인 시점을 정합니다.<br>
+<code style="font-family:monospace">/loop 20m /review-pr 1234</code>처럼 스킬을 넣을 수도 있는데요,<br>
+<code style="font-family:monospace">disable-model-invocation: true</code>가 붙은 스킬은<br>
+실행되지 않고 글자로만 전달되니 함께 기억해 두세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 <code style="font-family:monospace">/loop</code>를 걸어 두고 노트북을 덮었다가,<br>
+다시 열어 보니 확인이 멈춰 있던 적이 있어요.<br>
+<code style="font-family:monospace">/loop</code>는 세션이 열려 있을 때만 돌아서,<br>
+터미널을 닫으면 멈춘다는 이야기가 여러 곳에서 반복해서 나오더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서 기준으로 반복 작업은 만든 지 7일이 지나면 스스로 끝납니다.<br>
+간격을 정해 둔 반복은 <code style="font-family:monospace">Esc</code>로 멈추지 않으니<br>
+"배포 확인 반복을 취소해줘"처럼 말로 부탁해야 하죠.<br>
+세션 없이도 돌려야 한다면 예약 작업을 쓰면 됩니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">방식</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">좋은 점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">주의할 점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>/loop</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">지금 세션에서 바로 시작</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">세션을 닫으면 멈춤</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>데스크톱 예약 작업</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">세션 없이 내 파일로 실행</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">컴퓨터는 켜 둬야 함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>클라우드 예약 작업</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">컴퓨터를 꺼도 실행</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">최소 간격 1시간, 새로 받은 코드로 실행</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">한 번만 알림을 받고 싶다면 <code style="font-family:monospace">/loop</code> 없이<br>
+"오후 3시에 릴리스 브랜치 푸시하라고 알려줘"처럼 말로 부탁하면 됩니다.<br>
+그 시간에 한 번 실행된 뒤 스스로 지워집니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 반복 작업 자동화를<br>
+스킬로 저장하기, 훅으로 매번 돌리기, <code style="font-family:monospace">/loop</code>로 시간 맡기기의<br>
+3단계로 알아보았습니다.<br>
+"내가 부탁할 일인가, 빠지면 안 되는 일인가, 시간에 맞춰 할 일인가"<br>
+이 질문 하나만 기억하셔도 어디에 맡길지 고르실 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에는 가장 자주 쓰는 부탁 하나만 스킬로 저장해 보세요.<br>
+작은 자동화 하나가 하루의 반복을 덜어 주는 법이죠!<br>
+다음 글에서는 클로드에 노션 MCP를 연결하는<br>
+3단계를 정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 어떤 반복 작업부터 맡겨 보고 싶으신가요?<br>
+궁금한 점은 언제든 댓글로 편하게 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
