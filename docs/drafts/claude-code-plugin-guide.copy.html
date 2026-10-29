@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 플러그인 사용법 3단계 정리</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 플러그인 사용법 3단계 정리</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 플러그인 사용법 3단계 정리 대표 이미지</td><td>01_thumbnail_plugin.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 플러그인을 마켓플레이스에서 찾아 설치하고 실행하는 흐름</td><td>02_diagram_plugin-flow.png</td></tr><tr><td>03</td><td>비교표</td><td>클로드 코드 플러그인 설치 범위 user, project, local 비교</td><td>03_table_install-scope.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 플러그인 명령이 안 보일 때 확인하는 순서</td><td>04_card_not-showing.png</td></tr><tr><td>05</td><td>포인트카드</td><td>클로드 코드 플러그인 끄기, 업데이트, 삭제 관리 명령 정리</td><td>05_card_manage-commands.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 플러그인 사용법 3단계 요약: 설치, 실행 확인, 관리</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드플러그인 #플러그인사용법 #플러그인마켓플레이스 #AI코딩도구 #AI에이전트</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 플러그인 사용법은 설치,<br>
+실행 확인, 관리의 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"플러그인이 좋다는데 어디서 받고 어떻게 켜는지 모르겠어요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 플러그인 사용법</strong>은<br>
+<code style="font-family:monospace">/plugin</code>에서 골라 설치하고, <code style="font-family:monospace">/</code>로 실행되는지 확인한 뒤,<br>
+안 쓰는 것은 끄거나 지우면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">플러그인은 스킬, 에이전트, 훅, MCP 서버를<br>
+한 번에 묶어 설치하는 꾸러미입니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면 플러그인 하나를 설치해서<br>
+실행하고 정리하는 데까지 혼자 하실 수 있습니다.<br>
+명령어와 설정은 <a href="https://code.claude.com/docs/en/discover-plugins">Claude Code 공식 문서</a>를<br>
+2026년 10월 29일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 터미널에서 <code style="font-family:monospace">claude</code> 실행<br>
+• <strong>소요 시간:</strong> 플러그인 하나 기준으로 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, 슬래시 명령을 써 본 적이 있으면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">먼저 꼭 알아야 할 개념 하나만 짚고 갈게요.<br>
+<strong>마켓플레이스</strong>는 플러그인을 모아 둔 목록이고,<br>
+Anthropic 공식 목록의 이름은 <code style="font-family:monospace">claude-plugins-official</code>입니다.<br>
+터미널에서 클로드 코드를 처음 실행하면<br>
+이 공식 목록이 자동으로 등록됩니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 플러그인은 어떻게 설치할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 설치할 때 가장 많이 막히는 부분은 마켓플레이스 등록입니다.<br>
+저도 설치 명령을 넣었다가 공식 마켓플레이스를<br>
+찾을 수 없다는 메시지가 떠서 한참 헤맸어요.<br>
+VS Code 확장으로만 쓰던 분들이 여기서 많이들 막히시더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 프로젝트 폴더에서 <code style="font-family:monospace">claude</code>를 실행합니다.<br>
+2. <code style="font-family:monospace">/plugin</code>을 입력하고 <strong>Discover</strong> 탭에서 플러그인을 고릅니다.<br>
+3. 상세 화면의 <strong>Will install</strong> 항목을 읽어 봅니다.<br>
+4. 설치 범위를 고르면 설치가 끝납니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이름을 알고 있다면 바로 설치 명령을 써도 됩니다.<br>
+커밋과 PR 작업을 돕는 공식 플러그인을 예로 들면 아래와 같습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">/plugin install commit-commands@claude-plugins-official</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">마켓플레이스를 찾을 수 없다는 메시지가 나오면<br>
+공식 마켓플레이스를 직접 추가하고 다시 설치하면 됩니다.<br>
+다른 사람이 만든 마켓플레이스도 같은 명령에<br>
+GitHub 저장소 이름(<code style="font-family:monospace">owner/repo</code>)을 넣어 추가합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">/plugin marketplace add anthropics/claude-plugins-official</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치 범위는 세 가지 중에서 고릅니다.<br>
+누가 이 플러그인을 쓰게 할지 정하는 단계라 표로 정리했습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">범위</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">적용되는 곳</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">기록되는 파일</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>user</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이 컴퓨터의 모든 프로젝트</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">~/.claude/settings.json</code></td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>project</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이 저장소의 모든 협업자</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">.claude/settings.json</code></td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>local</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이 저장소에서 나만</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">.claude/settings.local.json</code></td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">같은 플러그인이 여러 범위에 있으면<br>
+local, project, user 순서로 우선합니다.<br>
+project 범위는 설정 파일만 공유되기 때문에,<br>
+협업자도 각자 한 번씩 설치 명령을 실행해야 하죠.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 플러그인은 내 컴퓨터에서<br>
+내 권한으로 코드를 실행할 수 있습니다.<br>
+공식 문서도 설치 전에 믿을 수 있는지 확인하라고 안내하니,<br>
+<strong>Will install</strong> 목록과 플러그인 홈페이지를 꼭 읽어 보세요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 설치한 플러그인은 어떻게 실행할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 플러그인이 켜졌는지 확인할 차례입니다.<br>
+설치 요약 마지막 줄이 <code style="font-family:monospace">Plugin is now active.</code>이면<br>
+바로 쓸 수 있고, <code style="font-family:monospace">Run /reload-plugins to apply.</code>이면<br>
+다시 불러오기가 필요합니다.<br>
+이때는 패널이 닫히면서 클로드 코드가 알아서 실행해 줍니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">플러그인 기능은 대화창에 <code style="font-family:monospace">/</code>를 입력하면 목록에 나옵니다.<br>
+이름은 <code style="font-family:monospace">/플러그인이름:스킬이름</code> 형태라서,<br>
+앞의 예시라면 <code style="font-family:monospace">/commit-commands:commit</code>으로 실행합니다.<br>
+<code style="font-family:monospace">/plugin</code>의 <strong>Installed</strong> 탭에서도 설치 범위와 함께 볼 수 있어요.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">설치했는데 명령이 안 보이면 어떻게 할까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치는 끝났는데 <code style="font-family:monospace">/</code> 목록에 명령이 안 보여서<br>
+고장 난 줄 아는 분이 꽤 많더라고요.<br>
+저도 같은 세션에서 바로 찾다가 안 보여서<br>
+다시 설치할 뻔했어요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서로 하나씩 확인해 보세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. <code style="font-family:monospace">/plugin</code>의 <strong>Installed</strong> 탭에서 켜져 있는지 봅니다.<br>
+2. 같은 화면의 <strong>Errors</strong> 탭에서 오류를 확인합니다.<br>
+3. 이번 세션에 설치했다면 <code style="font-family:monospace">/reload-plugins</code>를 실행합니다.<br>
+4. 그래도 안 보이면 클로드 코드를 새로 시작합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">상세 화면에 스킬이 하나도 없는 플러그인이라면<br>
+처음부터 <code style="font-family:monospace">/</code> 목록에 나올 명령이 없는 것입니다.<br>
+이 경우는 오류가 아니니 플러그인 설명을 다시 읽어 보세요.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 클로드 코드 플러그인은 어떻게 관리할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">플러그인은 설치보다 정리가 더 중요합니다.<br>
+궁금한 것을 이것저것 설치해 두다 보면,<br>
+쓰지도 않는 플러그인이 대화 공간을 차지하는 경우가 많더라고요.<br>
+켜 둔 플러그인은 쓰지 않을 때도 매번 일정한 분량을 대화에 더합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">관리는 <code style="font-family:monospace">/plugin</code>의 <strong>Installed</strong> 탭에서 대부분 해결됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>끄기·켜기:</strong> 목록에서 플러그인을 고르고 Space 키<br>
+• <strong>업데이트·삭제:</strong> Enter로 상세 화면을 열고 메뉴 선택<br>
+• <strong>안 쓰는 것 찾기:</strong> <code style="font-family:monospace">Not used recently</code> 묶음 확인</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">세션 밖 터미널에서는 아래 명령으로 같은 일을 할 수 있습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">claude plugin list
+claude plugin disable &lt;이름&gt;@&lt;마켓플레이스&gt;
+claude plugin uninstall &lt;이름&gt;@&lt;마켓플레이스&gt;
+claude plugin details &lt;이름&gt;</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">claude plugin details</code>를 실행하면 그 플러그인이<br>
+켜져 있는 동안 항상 더해지는 토큰 수를 보여 줍니다.<br>
+많이 차지하는 플러그인부터 끄면 정리가 훨씬 쉬워지죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">업데이트는 마켓플레이스마다 기본값이 다릅니다.<br>
+공식 마켓플레이스는 자동 업데이트가 기본으로 켜져 있고,<br>
+다른 마켓플레이스는 기본으로 꺼져 있습니다.<br>
+업데이트돼도 지금 세션은 원래 버전을 쓰니,<br>
+안내가 뜨면 <code style="font-family:monospace">/reload-plugins</code>로 반영하면 됩니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 플러그인을 많이 설치하는 것이 아니라<br>
+<strong>지금 쓰는 것만</strong> 켜 두는 것이겠죠.<br>
+마켓플레이스를 통째로 지우면 그곳에서 설치한<br>
+플러그인이 모두 함께 삭제된다는 점도 알아 두세요.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 플러그인 사용법을<br>
+설치, 실행 확인, 관리의 3단계로 알아보았습니다.<br>
+설치는 <code style="font-family:monospace">/plugin</code> 하나, 다시 불러오기는 <code style="font-family:monospace">/reload-plugins</code> 하나만<br>
+기억하셔도 시작은 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에는 공식 마켓플레이스에서 플러그인 하나만 설치해 보세요.<br>
+필요한 도구를 하나씩 더하다 보면<br>
+나에게 맞는 작업 환경이 만들어지는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 어떤 플러그인부터 설치해 보고 싶으신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
