@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 인텔리제이 사용법 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 인텔리제이 사용법 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 인텔리제이 사용법 3단계 대표 이미지</td><td>01_thumbnail_intellij-usage.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 인텔리제이 연결 3단계 흐름: CLI 설치, 플러그인 설치, IDE 터미널에서 실행</td><td>02_diagram_connect-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 CLI 설치 명령, 설치 확인, 첫 로그인 순서 정리</td><td>03_card_cli-install.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 인텔리제이 플러그인 Claude command 경로 설정 예시 3가지</td><td>04_card_claude-command.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 코드 인텔리제이 연결 방법 비교: IDE 내장 터미널과 외부 터미널</td><td>05_table_connect-methods.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 인텔리제이 연결 후 쓸 수 있는 기능 4가지</td><td>06_card_features.png</td></tr><tr><td>07</td><td>비교표</td><td>클로드 코드 인텔리제이 연결 문제 증상별 해결법 정리</td><td>07_table_troubleshooting.png</td></tr><tr><td>08</td><td>포인트카드</td><td>클로드 코드 인텔리제이 3단계 요약과 다음 글 클로드와 클로드 코드 차이 예고</td><td>08_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드인텔리제이 #인텔리제이 #IntelliJ #JetBrains플러그인 #클로드코드사용법 #AI코딩도구</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 인텔리제이 사용법은 CLI 설치,<br>
+플러그인 설치, IDE 터미널에서 실행의 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"인텔리제이에서 쓰고 싶은데 플러그인만 깔면 되는 건가요?"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 인텔리제이 사용법</strong>은<br>
+클로드 코드 CLI를 먼저 설치하고, JetBrains 플러그인을 깐 뒤,<br>
+IDE 내장 터미널에서 <code style="font-family:monospace">claude</code>를 실행하면 끝입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드는 코드를 읽고, 파일을 고치고, 명령을 실행해 주는<br>
+에이전트형 코딩 도구입니다.<br>
+인텔리제이와 연결하면 수정 내용을 IDE의 diff 화면에서 보고,<br>
+지금 선택한 코드를 따로 붙여 넣지 않고도 물어볼 수 있죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘 이 글 하나만 끝까지 읽으시면 설치부터 IDE 연결 확인까지<br>
+혼자 해 보실 수 있습니다.<br>
+설치 순서와 설정 이름은 <a href="https://code.claude.com/docs/ko/jetbrains">Claude Code 공식 문서</a>를<br>
+2026년 10월 30일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 인텔리제이 같은 JetBrains IDE, 유료 Claude 구독<br>
+• <strong>소요 시간:</strong> 설치와 로그인까지 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, IDE 터미널을 열어 봤다면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서에 따르면 플러그인은 IntelliJ IDEA, PyCharm,<br>
+WebStorm, Android Studio, PhpStorm, GoLand처럼<br>
+대부분의 JetBrains IDE에서 동작합니다.<br>
+여러분이 쓰는 IDE도 이 목록에 있으신가요?<br>
+다만 IntelliJ IDEA의 판(edition)별 지원 여부는<br>
+공식 문서에 따로 나와 있지 않습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">계정은 Pro, Max, Team, Enterprise 구독이나<br>
+Claude Console 계정이면 되고, API 키는 따로 필요 없습니다.<br>
+Free 플랜에는 클로드 코드가 포함되지 않으니<br>
+이 점은 미리 확인해 두세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">마켓플레이스에서 찾을 플러그인 이름은 <strong>Claude Code [Beta]</strong>입니다.<br>
+2026년 10월 30일 기준 공식 문서에도 [Beta] 표기가 붙어 있는데요.<br>
+이름이 비슷한 다른 플러그인도 검색되니,<br>
+Anthropic이 만든 공식 플러그인인지 꼭 확인하세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 CLI는 왜 먼저 설치할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에 놓치기 쉬운 부분이 바로 이 순서입니다.<br>
+플러그인 안에는 클로드 코드 CLI가 들어 있지 않아서,<br>
+CLI를 찾지 못하면 "Cannot launch Claude Code" 알림이 뜹니다.<br>
+플러그인이 IDE 터미널에서 <code style="font-family:monospace">claude</code> 명령을 실행해 연결하는 구조이기 때문이죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 운영체제에 맞는 설치 명령을 터미널에 입력합니다.<br>
+2. 새 터미널 창을 열고 <code style="font-family:monospace">claude --version</code>을 실행합니다.<br>
+3. <code style="font-family:monospace">claude</code>를 실행해 브라우저 창에서 로그인합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em"># macOS, Linux, WSL
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows PowerShell
+irm https://claude.ai/install.ps1 | iex</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치 명령은 내려받는 동안 진행 상황을 보여 주지 않으니<br>
+멈춘 것 같아도 잠시 기다려 주세요.<br>
+<code style="font-family:monospace">claude --version</code>에서 버전 번호가 나오면 설치가 끝난 것이고,<br>
+<code style="font-family:monospace">claude</code>를 찾을 수 없다고 나오면<br>
+설치 경로가 아직 PATH에 없는 상태입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 <code style="font-family:monospace">claude</code>를 실행하면 브라우저에 로그인 창이 열립니다.<br>
+창이 자동으로 안 열리면 <code style="font-family:monospace">c</code>를 눌러 로그인 주소를 복사하고,<br>
+브라우저에 코드가 보이면 터미널의<br>
+<code style="font-family:monospace">Paste code here if prompted</code> 자리에 붙여 넣으면 되죠.<br>
+터미널에 <code style="font-family:monospace">Login successful</code>이 뜨면 <code style="font-family:monospace">Enter</code>를 눌러 계속합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> Homebrew나 WinGet으로도 설치할 수 있지만,<br>
+이 두 방법은 자동 업데이트가 되지 않아 직접 올려 줘야 합니다.<br>
+공식 권장 방식인 Native 설치는 백그라운드에서<br>
+알아서 업데이트됩니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 인텔리제이 플러그인은 어떻게 설치할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 IDE 쪽을 준비할 차례입니다.<br>
+공식 안내는 <a href="https://plugins.jetbrains.com/plugin/27310-claude-code-beta-">JetBrains 마켓플레이스</a>에서<br>
+플러그인을 설치하고 IDE를 다시 시작하는 것이 전부입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 마켓플레이스에서 <strong>Claude Code [Beta]</strong>를 찾습니다.<br>
+2. 플러그인을 설치합니다.<br>
+3. IDE를 다시 시작합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여기서 IDE를 한 번 재시작했는데도 반영이 안 돼서,<br>
+완전히 껐다 켜고 나서야 됐다는 분이 많더라고요.<br>
+공식 문서에도 완전한 재시작을 여러 번 해야 할 수 있다고 적혀 있으니,<br>
+기능이 안 보이면 IDE를 확실히 종료했다가 다시 켜 보세요.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">플러그인이 claude를 못 찾을 때는?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">claude</code>가 IDE가 찾지 못하는 위치에 설치돼 있으면<br>
+Claude 아이콘을 눌렀을 때 "command not found"가 뜹니다.<br>
+이때는 <strong>Settings → Tools → Claude Code [Beta]</strong>의<br>
+<strong>Claude command</strong> 칸에 실행할 명령이나 전체 경로를 넣으면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>기본:</strong> <code style="font-family:monospace">claude</code><br>
+• <strong>전체 경로:</strong> <code style="font-family:monospace">/usr/local/bin/claude</code>처럼 설치 위치 그대로<br>
+• <strong>WSL:</strong> <code style="font-family:monospace">wsl -d Ubuntu -- bash -lic "claude"</code></p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">WSL 명령의 <code style="font-family:monospace">Ubuntu</code>는 자기 배포판 이름으로 바꿔 주세요.<br>
+JetBrains 원격 개발(Remote Development)을 쓴다면<br>
+로컬 클라이언트가 아니라 <strong>Settings → Plugin (Host)</strong>에서<br>
+원격 호스트에 플러그인을 설치해야 한다는 점도 기억해 두세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. IDE와 연결은 어떻게 확인할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서가 권하는 가장 기본적인 방법은<br>
+IDE 내장 터미널에서 <code style="font-family:monospace">claude</code>를 실행하는 것입니다.<br>
+이렇게 하면 모든 연동 기능이 켜집니다.<br>
+이때 IDE에서 연 프로젝트 루트와 같은 폴더에서 시작해야<br>
+클로드가 IDE와 같은 파일을 봅니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">에디터에서 바로 열고 싶다면 Mac은 <code style="font-family:monospace">Cmd+Esc</code>,<br>
+Windows와 Linux는 <code style="font-family:monospace">Ctrl+Esc</code>를 누르거나<br>
+화면의 Claude Code 버튼을 눌러도 됩니다.<br>
+그렇다면 늘 쓰던 외부 터미널에서는 어떻게 연결할까요?</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">iTerm2나 Windows Terminal 같은 외부 터미널이라면<br>
+<code style="font-family:monospace">claude</code>를 실행한 뒤 <code style="font-family:monospace">/ide</code>를 입력하면 됩니다.<br>
+연결되면 <code style="font-family:monospace">Connected to IntelliJ IDEA.</code> 같은 메시지가 나오죠.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">실행 위치</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">연결 방법</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">참고</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>IDE 내장 터미널</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">claude</code> 실행만 하면 연결</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">공식 문서의 기본 방법</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>외부 터미널</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">claude</code> 실행 후 <code style="font-family:monospace">/ide</code> 입력</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">연결 메시지로 확인</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>외부 터미널 자동 연결</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">autoConnectIde</code>를 <code style="font-family:monospace">true</code>로 설정</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">기본값은 <code style="font-family:monospace">false</code></td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">외부 터미널에서도 매번 자동으로 연결하고 싶다면<br>
+<code style="font-family:monospace">/config</code>의 <strong>Auto-connect to IDE (external terminal)</strong>를 켜면 됩니다.<br>
+이 항목이 바로 <code style="font-family:monospace">autoConnectIde</code> 설정입니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">연결되면 무엇이 달라질까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">연결이 끝나면 IDE 안의 정보가 클로드 코드로 넘어가고,<br>
+클로드의 수정안은 IDE 화면에 표시됩니다.<br>
+공식 문서에 적힌 기능은 아래와 같습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>diff 보기:</strong> 수정 내용이 IDE diff 뷰어에 열립니다<br>
+• <strong>선택 영역 공유:</strong> 선택한 코드와 열린 파일이 함께 전달됩니다<br>
+• <strong>파일 참조:</strong> <code style="font-family:monospace">Cmd+Option+K</code>(Windows·Linux는 <code style="font-family:monospace">Alt+Ctrl+K</code>)<br>
+• <strong>진단 공유:</strong> IDE의 lint·구문 오류를 클로드가 읽습니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">파일 참조 단축키를 누르면 <code style="font-family:monospace">@src/auth.ts#L1-99</code> 같은<br>
+참조가 입력창에 들어갑니다.<br>
+진단은 한 번에 파일 하나씩 읽고, 편집 뒤에 자동으로 요청하지는 않으니<br>
+필요할 때 확인해 달라고 직접 말해 보세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">"No available IDEs detected"가 뜰 때는?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 처음엔 외부 터미널에서 <code style="font-family:monospace">/ide</code>를 입력했다가<br>
+"No available IDEs detected"라는 메시지만 보고 한참 헤맸어요.<br>
+플러그인을 다시 깔거나 터미널을 바꿔 가며 시도하는 분이 많은데요,<br>
+공식 문서가 안내하는 확인 순서는 이렇습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 플러그인이 설치돼 있고 켜져 있는지 확인합니다.<br>
+2. IDE를 완전히 종료했다가 다시 켭니다.<br>
+3. IDE 내장 터미널에서 <code style="font-family:monospace">claude</code>를 실행해 봅니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">2026년 9월 23일 배포된 클로드 코드 2.1.281에서는<br>
+<code style="font-family:monospace">/ide</code>가 실행 중인 IDE를 나열하면서도<br>
+이 메시지를 보여 주던 문제가 고쳐졌습니다.<br>
+CLI가 오래된 버전이라면 업데이트부터 해 보세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">Windows에서 WSL2로 클로드 코드를 돌린다면<br>
+대개 WSL2의 네트워크 방식이나 Windows 방화벽이 연결을 막습니다.<br>
+공식 문서는 방화벽 규칙 추가를 권장 해결법으로 들고,<br>
+Windows 11 22H2 이상이라면 미러링 네트워크 모드를 대안으로 안내합니다.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">수정 내용이 터미널에만 뜰 때는?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">플러그인을 깔았는데도 diff가 IDE 창이 아니라<br>
+터미널에만 보인다면 <code style="font-family:monospace">/config</code>의 <strong>Diff tool</strong>을 확인하세요.<br>
+<code style="font-family:monospace">auto</code>는 IDE에서, <code style="font-family:monospace">terminal</code>은 터미널에서 diff를 보여 주고,<br>
+기본값은 <code style="font-family:monospace">auto</code>입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이 항목은 IDE에 연결됐을 때만 <code style="font-family:monospace">/config</code>에 나타납니다.<br>
+항목이 안 보인다면 아직 연결되지 않은 상태이니,<br>
+IDE 내장 터미널에서 실행하거나 <code style="font-family:monospace">/ide</code>를 먼저 입력해 주세요.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">ESC로 작업이 멈추지 않을 때는?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">작업을 멈추려고 ESC를 눌렀는데 반응이 없어서<br>
+결국 <code style="font-family:monospace">Ctrl+C</code>로 세션을 통째로 끝냈다는 이야기가 자주 보여요.<br>
+IDE가 ESC 키를 에디터로 포커스를 옮기는 데 먼저 쓰는 것이<br>
+흔한 원인으로 꼽힙니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. <strong>Settings → Tools → Terminal</strong>로 갑니다.<br>
+2. "Move focus to the editor with Escape"를 끕니다.<br>
+3. 적용한 뒤 ESC를 다시 눌러 봅니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">옵션을 끄는 대신 "Configure terminal keybindings"에서<br>
+"Switch focus to Editor" 단축키를 지워도 됩니다.<br>
+다만 플러그인 버튼으로 실행했을 때는 이 설정만으로<br>
+해결되지 않았다는 사용자 보고도 있습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> JetBrains IDE에서 <code style="font-family:monospace">acceptEdits</code> 모드로 쓰면<br>
+클로드 코드가 IDE가 자동 실행할 수 있는 설정 파일을 고칠 수 있어<br>
+Bash 실행 권한 확인을 우회할 위험이 커질 수 있습니다.<br>
+공식 문서는 편집에 Manual 모드를 쓰고,<br>
+신뢰할 수 있는 프롬프트로만 쓰라고 권합니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 인텔리제이 사용법을<br>
+CLI 설치, 플러그인 설치, IDE 터미널 실행의 3단계로 알아보았습니다.<br>
+플러그인만으로는 동작하지 않으니 CLI부터 설치하고,<br>
+연결이 안 되면 IDE를 완전히 다시 켠 뒤 <code style="font-family:monospace">/ide</code>로 확인해 보세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설정 몇 가지만 맞춰 두면 매일 여는 IDE가<br>
+든든한 작업 공간으로 바뀌는 법이죠!<br>
+다음 글에서는 헷갈리기 쉬운 클로드와 클로드 코드의 차이를 정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 인텔리제이와 외부 터미널 중 어디에서 쓰실 생각인가요?<br>
+궁금한 점이나 막힌 부분은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 08】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
