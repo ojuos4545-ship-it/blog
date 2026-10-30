@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드로 웹페이지 만들기 3단계 총정리</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드로 웹페이지 만들기 3단계 총정리</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드로 웹페이지 만들기 3단계 총정리 대표 이미지</td><td>01_thumbnail_webpage.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 아티팩트로 웹페이지를 만드는 흐름: 요청하기, 다듬기, 게시하기</td><td>02_diagram_webpage-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 웹페이지 요청 프롬프트에 넣을 네 가지: 무엇을, 누구에게, 구성, 분위기</td><td>03_card_request-prompt.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 아티팩트 웹페이지를 고칠 때 지킬 세 가지 수정 요청 요령</td><td>04_card_edit-tips.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 아티팩트 웹페이지 공유 방법 비교: 게시 링크, 임베드 코드, 코드 내려받기</td><td>05_table_share-options.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 웹페이지 만들기 3단계 요약과 다음 글 예고</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드 #클로드웹페이지만들기 #클로드아티팩트 #ClaudeArtifacts #AI웹페이지 #노코드웹페이지 #AI홈페이지만들기 #클로드사용법</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드로 웹페이지 만들기는<br>
+구체적으로 요청하고, 한 곳씩 다듬고, 게시해 공유하면 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"코딩은 하나도 모르는데 간단한 소개 페이지 하나만 있으면 좋겠어요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드로 웹페이지 만들기</strong>는<br>
+원하는 페이지를 자세히 요청하고, 고칠 곳을 하나씩 짚어 다듬은 뒤,<br>
+게시 버튼으로 링크를 만들면 끝납니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드는 대화창 옆에 아티팩트라는 별도 창을 열어<br>
+한 페이지짜리 웹사이트를 바로 보여 줍니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면 요청부터 공유 링크까지<br>
+혼자서도 차근차근 해내실 수 있습니다.<br>
+기능과 버튼 이름은 <a href="https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them">Claude 공식 도움말</a>을<br>
+2026년 10월 30일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 계정, 페이지에 넣을 내용 메모<br>
+• <strong>설정:</strong> Settings &gt; Capabilities에서 파일 생성 기능 켜기<br>
+• <strong>난이도:</strong> 초급, 원하는 모습을 말로 설명할 수 있으면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아티팩트는 무료 요금제를 포함한 모든 요금제에서 만들 수 있습니다.<br>
+다만 공식 도움말 기준으로 파일 생성 기능이 켜져 있어야 하는데요.<br>
+새 화면에서는 이 항목이 <code style="font-family:monospace">Create and edit files</code>라는 이름으로 보입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아티팩트는 문서, 대시보드, 작은 도구처럼<br>
+대화 밖에서도 다시 쓸 만한 결과물을 담는 창입니다.<br>
+만든 것은 사이드바의 Artifacts 탭에 모여 있어서<br>
+나중에 다시 찾아 이어서 고칠 수도 있죠.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드에게 웹페이지는 어떻게 요청할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 시작할 때 가장 많이 실수하는 부분은 바로 요청을 한 줄로 끝내는 것입니다.<br>
+저도 처음엔 "카페 홈페이지 만들어줘"라고만 적었다가<br>
+어디서 본 듯한 평범한 페이지를 받았어요.<br>
+막연하게 부탁하면 결과도 막연해진다는 이야기가 정말 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">요청에는 아래 네 가지를 함께 적어 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. <strong>무엇을:</strong> 페이지 종류와 목적 (가게 소개, 행사 안내 등)<br>
+2. <strong>누구에게:</strong> 페이지를 볼 사람<br>
+3. <strong>구성:</strong> 위에서 아래로 들어갈 섹션 순서<br>
+4. <strong>분위기:</strong> 색감과 느낌, 참고하고 싶은 스타일</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">예를 들면 아래처럼 적을 수 있습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">동네 작은 빵집 소개 웹페이지를 한 페이지로 만들어줘.
+보는 사람은 근처에 사는 주민이야.
+구성은 가게 소개, 대표 메뉴 3개, 영업시간, 오시는 길 순서로 해줘.
+분위기는 따뜻한 베이지 톤이고, 휴대폰에서도 보기 편하게 해줘.
+사진은 아직 없으니 자리만 비워 둬.</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 메뉴 이름, 가격, 주소처럼 정해진 내용은<br>
+처음부터 요청에 적어 주세요.<br>
+클로드가 그럴듯한 예시 문구로 채우면 나중에 하나하나 고쳐야 합니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 만든 웹페이지는 어떻게 다듬을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 마음에 들 때까지 다듬어 볼 차례입니다.<br>
+고치는 방법은 간단해요.<br>
+대화창에 바꾸고 싶은 점을 말하면 클로드가 같은 아티팩트를 고쳐 줍니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 여기서 막히는 분이 꽤 많습니다.<br>
+버튼 색 하나만 바꿔 달라고 했는데<br>
+제목이나 배치까지 함께 바뀌어 버렸다는 후기가 자주 보이더라고요.<br>
+그래서 저는 아래 세 가지를 지키며 요청합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 고칠 곳을 화면에 보이는 문구로 정확히 짚기<br>
+• 한 번에 한 가지만 부탁하기<br>
+• "나머지는 그대로 둬"를 꼭 덧붙이기</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">"영업시간" 섹션의 배경색만 연한 초록으로 바꿔줘.
+나머지 섹션과 글자는 그대로 둬.</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">고치다가 이전 모습이 더 낫다 싶을 때도 있죠.<br>
+공식 도움말에 따르면 앞서 보낸 메시지를 고쳐 보내면<br>
+대화가 갈래로 나뉘어 원래 결과물을 잃지 않고 새로 시도할 수 있습니다.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">화면이 비거나 이미지가 안 보일 때는?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아티팩트에 오류가 나면 <code style="font-family:monospace">Try fixing with Claude</code> 버튼이 뜹니다.<br>
+누르면 클로드가 직접 고쳐 보는데요,<br>
+공식 도움말도 항상 고쳐진다고 보장하지는 않습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">인터넷의 이미지 주소를 넣었는데 그림이 안 뜨거나<br>
+화면이 하얗게 비어 버렸다는 분도 많더라고요.<br>
+아티팩트 창은 보안 때문에 외부에서 불러오는 파일을<br>
+제한하는 경우가 있다는 설명이 여러 곳에서 반복됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이럴 때는 "외부 라이브러리나 이미지 없이<br>
+한 파일 안에서 동작하게 다시 만들어줘"라고 요청해 보세요.<br>
+사진 자리는 색 상자로 비워 두고,<br>
+마지막에 직접 넣는 편이 마음이 편합니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 완성한 웹페이지는 어떻게 공유할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">페이지가 완성됐다면 이제 다른 사람에게 보여 줄 차례입니다.<br>
+대화에서 만든 아티팩트는 <code style="font-family:monospace">Publish</code> 버튼을 누르고,<br>
+공개 링크를 복사해 보내면 됩니다.<br>
+게시는 무료, Pro, Max 요금제에서 쓸 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">링크를 받은 사람은 클로드 계정이 없어도 페이지를 보고 쓸 수 있습니다.<br>
+Team이나 Enterprise 요금제라면 <code style="font-family:monospace">Publish</code> 대신<br>
+<code style="font-family:monospace">Share &amp; copy link</code>가 보이고, 기본으로 조직 안에서만 공유되죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">많은 분들이 궁금해하시는 공유 방법을 표로 정리했습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">방법</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">주의점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>게시 링크</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">버튼 하나로 바로 공유</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">링크를 아는 누구나 볼 수 있음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>임베드 코드</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">내 사이트 안에 넣어 보여 줌</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">허용할 사이트 주소를 따로 적어야 함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>코드 내려받기</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">원하는 곳에 직접 올릴 수 있음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">올릴 곳을 따로 준비해야 함</td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">임베드는 게시한 뒤 <code style="font-family:monospace">Get embed code</code>를 눌러<br>
+<code style="font-family:monospace">Allowed domains</code> 칸에 허용할 사이트 주소를 쉼표로 나눠 적습니다.<br>
+게시를 취소하는 <code style="font-family:monospace">Unpublish</code>는 신중하게 누르세요.<br>
+한 번 취소한 아티팩트는 다시 게시할 수 없어서 새로 만들어야 합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 빨리 공유하는 것이 아니라<br>
+<strong>올려도 되는 내용만</strong> 담는 것이겠죠.<br>
+게시 링크는 아는 사람이면 누구나 열 수 있으니<br>
+개인 연락처나 내부 자료는 넣기 전에 한 번 더 확인해 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">한 페이지를 넘어 여러 페이지짜리 사이트로 키우고 싶다면<br>
+클로드 코드로 넘어가는 분이 많습니다.<br>
+이때 처음 보는 용어가 많아 낯설게 느껴질 수 있는데요,<br>
+다음 글에서 그 용어들을 쉽게 풀어 정리해 보겠습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드로 웹페이지 만들기를<br>
+요청하기, 다듬기, 공유하기의 3단계로 알아보았습니다.<br>
+요청은 자세하게, 수정은 한 곳씩, 공유는 <code style="font-family:monospace">Publish</code> 하나만<br>
+기억하셔도 첫 페이지는 충분히 완성하실 수 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에는 내 소개 페이지처럼 작은 것부터 만들어 보세요.<br>
+작은 페이지 하나가 다음 도전을 훨씬 가볍게 만들어 주는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 어떤 웹페이지를 가장 먼저 만들어 보고 싶으신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
