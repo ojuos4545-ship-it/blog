@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 한국어 설정 방법 3단계</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 한국어 설정 방법 3단계</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 한국어 설정 방법 3단계 대표 이미지</td><td>01_thumbnail_korean-setting.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 한국어 설정 3단계 흐름: settings.json, CLAUDE.md, 적용 확인</td><td>02_diagram_setting-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 한국어 설정을 넣는 settings.json 파일 위치 3곳 정리</td><td>03_card_settings-location.png</td></tr><tr><td>04</td><td>포인트카드</td><td>CLAUDE.md에 클로드 코드 한국어 답변 규칙을 적는 위치와 예시 문장</td><td>04_card_claude-md-rule.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 코드 한국어 설정 방법 settings.json과 CLAUDE.md의 장단점 비교</td><td>05_table_two-ways.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 한국어 설정 3단계 요약과 다음 글 모델 변경 방법 예고</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드한국어설정 #클로드코드설정 #클로드코드한국어 #settingsjson #CLAUDEmd #AI코딩도구</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 클로드 코드 한국어 설정은 settings.json의<br>
+<code style="font-family:monospace">language</code> 한 줄과 CLAUDE.md 한 문장이면 충분합니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"한국어로 물어봤는데 답은 자꾸 영어로 와요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 한국어 설정</strong>은<br>
+settings.json에 <code style="font-family:monospace">"language": "korean"</code>을 넣고,<br>
+CLAUDE.md에 한국어 답변 규칙을 한 줄 더 적으면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 처음엔 질문 끝에 매번 "한국어로 답해줘"를<br>
+붙여 가며 썼어요.<br>
+이렇게 쓰다가 설정 방법을 찾아보는 분이 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘 이 글 하나만 끝까지 읽으시면 설정 파일 수정부터<br>
+중간에 영어로 돌아올 때의 대처까지 혼자 하실 수 있습니다.<br>
+설정 이름과 파일 위치는<br>
+<a href="https://code.claude.com/docs/en/settings">Claude Code 공식 문서</a>를<br>
+2026년 11월 1일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 메모장 같은 텍스트 편집기<br>
+• <strong>소요 시간:</strong> 파일 두 개만 고치면 되니 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, 파일을 열어 글자를 고칠 수 있으면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">방법은 두 갈래입니다.<br>
+settings.json은 클로드 코드가 읽는 설정 파일이고,<br>
+CLAUDE.md는 클로드에게 주는 안내문 파일인데요.<br>
+첫 번째로 기본 언어를 정하고, 두 번째로 규칙을 보강한 뒤,<br>
+마지막에 제대로 적용됐는지 확인하는 순서로 진행합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. settings.json에 language는 어떻게 넣을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 설정할 때 가장 많이 헷갈리는 부분은 바로 파일 위치입니다.<br>
+설치만 해서는 설정 파일이 생기지 않기 때문에<br>
+파일이 없다면 직접 만들어야 하죠.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 홈 폴더의 <code style="font-family:monospace">.claude</code> 폴더를 엽니다.<br>
+2. <code style="font-family:monospace">settings.json</code> 파일을 열거나 새로 만듭니다.<br>
+3. 아래 내용을 넣고 저장합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "language": "korean"
+}</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이미 다른 설정이 들어 있다면 중괄호 안에 한 줄만 추가하고,<br>
+앞 줄 끝에 쉼표를 붙여 주세요.<br>
+설정 파일은 엄격한 JSON 형식이라서 <code style="font-family:monospace">//</code> 주석이나<br>
+마지막 항목 뒤의 쉼표가 있으면 오류로 처리됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">파일을 어디에 두느냐에 따라 적용되는 범위가 달라집니다.<br>
+많은 분들이 궁금해하시는 부분이라 표로 정리했습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">파일 위치</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">적용 범위</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">이런 분께</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">~/.claude/settings.json</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">내 컴퓨터의 모든 프로젝트</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">혼자 쓰는 대부분의 경우</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">.claude/settings.json</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이 프로젝트를 쓰는 모든 사람</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">팀 전체가 한국어로 쓸 때</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">.claude/settings.local.json</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이 프로젝트의 나에게만</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">팀 설정은 두고 나만 바꿀 때</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> <code style="font-family:monospace">language</code> 값은 정해진 목록이 없고,<br>
+적은 그대로 클로드에게 "이 언어로 답하라"는 지시로 전달됩니다.<br>
+클로드 코드가 값을 검사하지 않아서 철자가 틀려도 오류가 나지 않으니<br>
+<code style="font-family:monospace">korean</code> 철자를 한 번 더 확인해 보세요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. CLAUDE.md로 한 번 더 고정하려면?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 규칙을 한 겹 더 씌울 차례입니다.<br>
+CLAUDE.md는 세션이 시작될 때마다 읽히는 안내문이라서<br>
+답변 말투나 형식처럼 자세한 요청을 적기 좋습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">모든 프로젝트에 적용하려면 홈 폴더의 <code style="font-family:monospace">~/.claude/CLAUDE.md</code>에,<br>
+특정 프로젝트에만 적용하려면 프로젝트 폴더의 <code style="font-family:monospace">CLAUDE.md</code>에 적습니다.<br>
+클로드 코드 안에서 <code style="font-family:monospace">/memory</code>를 입력하면<br>
+이 파일들을 바로 열어 고칠 수도 있어요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">## 언어
+- 모든 답변과 설명은 한국어로 작성한다.
+- 코드, 명령어, 파일 이름은 원래 표기를 그대로 둔다.</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서도 CLAUDE.md는 강제 설정이 아니라 참고 내용으로 읽히고,<br>
+지시가 구체적이고 짧을수록 더 꾸준히 따른다고 설명합니다.<br>
+그래서 "한국어로" 한 마디보다 무엇을 한국어로 쓸지<br>
+범위를 함께 적어 두는 편이 낫습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 중간에 영어로 돌아올 때는 어떻게 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설정을 마쳤다면 먼저 적용 여부부터 확인해 보세요.<br>
+클로드 코드에서 <code style="font-family:monospace">/status</code>를 입력하면<br>
+<code style="font-family:monospace">Setting sources</code> 줄에 불러온 설정 파일 목록이 나옵니다.<br>
+여기에 <code style="font-family:monospace">User settings</code>가 보이면 홈 폴더 설정이 읽힌 것입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그런데 설정을 다 해 둬도 작업 도중에 영어 답변이<br>
+섞여 나온다는 이야기가 많습니다.<br>
+특히 git 명령처럼 영어로만 된 결과를 읽은 직후에<br>
+언어가 바뀌었다는 사례가 여러 곳에서 보이더라고요.<br>
+이럴 때는 아래 순서로 점검해 보세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 대화창에 "한국어로 답해줘"라고 한 번 다시 요청합니다<br>
+• <code style="font-family:monospace">/status</code>에서 설정 파일이 제대로 읽혔는지 확인합니다<br>
+• CLAUDE.md의 언어 규칙을 더 짧고 구체적으로 고칩니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">두 방법의 차이도 표로 정리했습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">방법</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">단점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>settings.json</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">한 줄로 끝나고 세션 제목까지 맞춰짐</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">답변 형식 같은 세부 규칙은 못 적음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>CLAUDE.md</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">무엇을 한국어로 쓸지 자세히 적음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">참고 내용이라 길면 효과가 약해짐</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">VS Code나 데스크톱 앱에서도 똑같이 될까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">네, 터미널과 VS Code, JetBrains 확장, 데스크톱 앱은<br>
+같은 설정 파일을 읽습니다.<br>
+다만 VS Code 채팅 창과 데스크톱 앱에서는 <code style="font-family:monospace">/config</code> 메뉴가 열리지 않으니<br>
+settings.json 파일을 직접 고치는 방법을 쓰시면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 답변 언어와 화면 표시가 서로 다른 문제라는 점이겠죠.<br>
+<code style="font-family:monospace">language</code>가 바꾸는 것은 클로드의 답변과<br>
+음성 받아쓰기 언어, 자동으로 붙는 세션 제목입니다.<br>
+한글이 네모나 이상한 기호로 보인다면 언어 설정이 아니라<br>
+터미널의 글자 인코딩 쪽을 따로 살펴봐야 합니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 한국어 설정을<br>
+settings.json, CLAUDE.md, 적용 확인의 3단계로 알아보았습니다.<br>
+<code style="font-family:monospace">"language": "korean"</code> 한 줄로 시작하고,<br>
+부족하면 CLAUDE.md로 보강한다고 기억하시면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저는 두 곳에 함께 적어 두고 쓰는 편인데,<br>
+두 방법을 같이 쓰라고 권하는 답변도 여러 곳에서 볼 수 있었어요.<br>
+작은 설정 하나가 매일의 번거로움을 덜어 주는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 어떤 방법으로 설정하셨나요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
