@@ -1,0 +1,17 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"></head><body>
+<div class="canvas">
+  <div class="head"><span class="no">03</span><span class="title">네트워크 오류 확인 순서</span></div>
+  <div class="flow">
+    <div class="node"><span class="num">1</span><b>연결 확인</b><small>200이면 정상</small></div>
+    <div class="arrow">→</div>
+    <div class="node"><span class="num">2</span><b>프록시</b><small>HTTPS_PROXY</small></div>
+    <div class="arrow">→</div>
+    <div class="node"><span class="num">3</span><b>인증서</b><small>--cacert 지정</small></div>
+  </div>
+  <div class="key">
+    <div class="label">KEY POINT</div>
+    <div class="big">인증서 검사는 끄지 않기</div>
+    <div class="small">급하면 brew·winget으로 설치</div>
+  </div>
+</div>
+</body></html>

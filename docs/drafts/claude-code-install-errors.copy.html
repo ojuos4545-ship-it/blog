@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 설치 오류 해결 5가지</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 설치 오류 해결 5가지</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 설치 오류 해결 5가지 대표 이미지</td><td>01_thumbnail_install-errors.png</td></tr><tr><td>02</td><td>비교표</td><td>클로드 코드 설치 오류 5가지 증상, 원인, 해결 방법 비교</td><td>02_table_error-map.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 설치 오류 command not found 해결: PATH에 설치 폴더 추가</td><td>03_card_path.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 중복 설치 확인과 정리: which -a claude, where.exe claude, npm uninstall</td><td>04_card_duplicate.png</td></tr><tr><td>05</td><td>비교표</td><td>클로드 코드 설치 오류를 막는 셸별 설치 명령 PowerShell, CMD, 맥·리눅스 비교</td><td>05_table_shell-commands.png</td></tr><tr><td>06</td><td>다이어그램</td><td>클로드 코드 설치 오류 중 네트워크·인증서 문제 해결 순서</td><td>06_diagram_network.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 코드 설치 오류 해결 5가지 요약과 다음 글 터미널 기초 명령어 예고</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드설치 #클로드코드설치오류 #클로드코드오류 #AI코딩도구 #바이브코딩</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 넓은 표, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 설치 오류는 메시지만 보면 원인이 보입니다.<br>
+PATH, 중복 설치, 셸 명령, 네트워크, 인증서 순서로 확인하세요.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">결론부터 말씀드리면, <strong>클로드 코드 설치 오류</strong>는<br>
+대부분 다섯 가지 중 하나이고, 오류 메시지를 보면 어디서 막혔는지 바로 보입니다.<br>
+명령을 못 찾으면 PATH, 옛 버전이 뜨면 중복 설치,<br>
+설치 명령부터 실패하면 셸이나 네트워크를 보면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"설치 명령을 그대로 붙여 넣었는데 빨간 글씨만 잔뜩 나와요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+오늘은 메시지별로 원인과 해결 명령을 하나씩 짚어볼게요.<br>
+명령과 오류 문구는 <a href="https://code.claude.com/docs/en/troubleshoot-install">Claude Code 공식 문서</a>를<br>
+2026년 11월 1일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">1. 클로드 코드 설치 오류, 무엇부터 볼까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오류가 나면 먼저 화면에 찍힌 메시지를 끝까지 읽어 보세요.<br>
+같은 "설치 실패"처럼 보여도 메시지에 따라 고칠 곳이 전혀 다릅니다.<br>
+자주 나오는 다섯 가지를 표로 정리했습니다.</p>
+<table width="100%" style="border-collapse:collapse;width:100%;max-width:100%;margin:0 0 1.2em"><tr><th width="37%" style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all;width:37%;background:#3A3852;color:#FFFFFF">증상</th><th width="33%" style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all;width:33%;background:#3A3852;color:#FFFFFF">원인</th><th width="30%" style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all;width:30%;background:#3A3852;color:#FFFFFF">먼저 할 일</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all"><code style="font-family:monospace">command not found</code></td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">PATH 누락</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">설치 폴더를<br>PATH에 추가</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">옛 버전이 실행됨</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">중복 설치</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">설치를<br>하나만 남기기</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all"><code style="font-family:monospace">irm</code>·<code style="font-family:monospace">&amp;&amp;</code> 오류</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">셸에 안 맞는 명령</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">셸에 맞는<br>명령 다시 입력</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all"><code style="font-family:monospace">&lt;!DOCTYPE html&gt;</code></td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">스크립트 대신<br>웹 페이지 수신</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">연결 확인 뒤<br>다시 시도</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">인증서 오류</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">회사망 프록시</td><td style="border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all">프록시·인증서<br>설정</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">메시지만으로 헷갈린다면 <code style="font-family:monospace">claude doctor</code>도 도움이 됩니다.<br>
+설치가 일단 끝나 <code style="font-family:monospace">claude</code> 명령이 실행되는 상태라면,<br>
+대화를 시작하지 않고 설치 상태와 설정 문제를 점검해 줍니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">2. 설치는 됐는데 claude가 안 될 때는?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치 완료 문구까지 봤는데 <code style="font-family:monospace">claude</code>를 치면 안 되는 경우입니다.<br>
+이때는 프로그램은 깔려 있고, 찾는 길이 막힌 경우가 대부분이죠.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">오류 1. command not found: claude</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">맥에서는 <code style="font-family:monospace">command not found: claude</code>,<br>
+윈도우에서는 <code style="font-family:monospace">'claude' is not recognized</code>가 뜹니다.<br>
+설치 폴더가 PATH(명령을 찾는 폴더 목록)에 빠져 있다는 뜻입니다.<br>
+설치 프로그램은 맥·리눅스에서 <code style="font-family:monospace">~/.local/bin</code>,<br>
+윈도우에서 <code style="font-family:monospace">%USERPROFILE%\.local\bin</code>에 클로드 코드를 넣습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">맥 기본 셸(zsh)이라면 아래 두 줄을 입력합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">echo 'export PATH="$HOME/.local/bin:$PATH"' &gt;&gt; ~/.zshrc
+source ~/.zshrc</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">윈도우는 PowerShell에서 아래 두 줄을 입력한 뒤<br>
+터미널을 새로 엽니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">$currentPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
+[Environment]::SetEnvironmentVariable('PATH', "$currentPath;$env:USERPROFILE\.local\bin", 'User')</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 이미 열려 있던 터미널 창은 예전 PATH를 그대로 씁니다.<br>
+VS Code 같은 편집기 안의 터미널이라면 편집기를 껐다 켜야<br>
+바뀐 PATH가 적용됩니다.</blockquote>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">오류 2. 업데이트했는데 옛 버전이 실행될 때</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">예전에 npm으로 깔아 둔 클로드 코드가 남아 있으면<br>
+새로 설치한 버전 대신 옛 버전이 먼저 실행될 수 있습니다.<br>
+저도 기본 설치로 바꾼 뒤에 <code style="font-family:monospace">claude --version</code>을 쳤는데<br>
+버전이 그대로라서 한참 헤맸어요.<br>
+같은 일을 겪었다는 글이 깃허브 이슈와 블로그에 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치가 몇 개인지는 아래 명령으로 확인합니다.<br>
+맥·리눅스는 <code style="font-family:monospace">which -a claude</code>, 윈도우는 <code style="font-family:monospace">where.exe claude</code>입니다.<br>
+두 줄 이상 나오면 공식 문서가 권하는 기본 설치 하나만 남기고,<br>
+npm으로 깐 것은 아래 명령으로 지웁니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">npm uninstall -g @anthropic-ai/claude-code</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">3. 설치 명령부터 실패할 때는?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이번에는 설치 명령을 넣자마자 오류가 나는 경우입니다.<br>
+대부분 명령을 넣은 곳이 틀렸거나,<br>
+설치 파일을 받아 오는 길이 막힌 경우인데요.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">오류 3. irm, &amp;&amp;, fsSL이 들어간 오류</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설치 명령은 운영체제와 셸마다 다릅니다.<br>
+다른 셸용 명령을 붙여 넣으면 아래처럼 오류가 납니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• **<code style="font-family:monospace">'irm' is not recognized</code>:** CMD 창에 PowerShell 명령을 넣은 경우<br>
+• **<code style="font-family:monospace">'&amp;&amp;' is not a valid statement separator</code>:** PowerShell에 CMD 명령을 넣은 경우<br>
+• **<code style="font-family:monospace">fsSL</code> 또는 <code style="font-family:monospace">'bash' is not recognized</code>:** 윈도우에 맥용 명령을 넣은 경우</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">저도 처음엔 맥용 설치 명령을 윈도우 PowerShell에 그대로 붙여 넣었다가<br>
+<code style="font-family:monospace">fsSL</code>이 들어간 낯선 오류를 보고 멈칫했어요.<br>
+이 실수로 질문을 올리는 분이 커뮤니티에 꽤 보이더라고요.<br>
+셸에 맞는 명령을 다시 정리해 드릴게요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">윈도우 PowerShell은 아래 명령입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">irm https://claude.ai/install.ps1 | iex</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">윈도우 CMD는 아래 명령입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">맥과 리눅스 터미널은 아래 명령입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">curl -fsSL https://claude.ai/install.sh | bash</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">PowerShell 창은 주소 앞에 <code style="font-family:monospace">PS</code>가 붙어 있어 CMD와 구분됩니다.<br>
+명령은 일부만 넣지 말고 한 줄 전체를 붙여 넣어야 합니다.<br>
+<code style="font-family:monospace">irm</code> 부분만 실행하면 설치는 안 되고 스크립트 글자만 화면에 찍히거든요.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">오류 4. syntax error near unexpected token '&lt;'</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">&lt;!DOCTYPE html&gt;</code>이 함께 보이면 설치 스크립트 대신<br>
+웹 페이지가 내려온 경우입니다.<br>
+일시적인 네트워크 문제나 서비스 장애가 원인일 때가 많아서,<br>
+몇 분 뒤 같은 명령을 다시 실행해 보는 것이 먼저입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그래도 안 되면 내려받는 서버에 닿는지 확인합니다.<br>
+맥·리눅스 기준으로 아래 명령의 첫 줄에 <code style="font-family:monospace">200</code>이 보이면 정상입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">curl -sI https://downloads.claude.ai/claude-code-releases/latest</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">403</code>이 나오면 프록시나 네트워크 필터가 막고 있을 가능성이 큽니다.<br>
+메시지에 "App unavailable in region"이 보이면<br>
+클로드 코드를 지원하지 않는 국가에서 접속한 경우입니다.<br>
+급하다면 맥은 <code style="font-family:monospace">brew install --cask claude-code</code>,<br>
+윈도우는 <code style="font-family:monospace">winget install Anthropic.ClaudeCode</code>로 설치할 수도 있습니다.</p>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">오류 5. 인증서 오류와 회사망 프록시</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">TLS connect error</code>나 <code style="font-family:monospace">unable to get local issuer certificate</code>는<br>
+보안 연결 단계에서 막혔다는 뜻입니다.<br>
+회사 네트워크에서 설치할 때 이 오류로 막히는 분이 많더라고요.<br>
+회사 프록시가 오가는 연결을 검사하면서<br>
+회사 자체 인증서로 바꿔 끼우기 때문입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이럴 때는 아래 순서로 확인해 보세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 회사 IT 담당자에게 프록시 주소를 받아 <code style="font-family:monospace">HTTPS_PROXY</code>와 <code style="font-family:monospace">HTTP_PROXY</code>에 넣기<br>
+2. 회사 인증서 파일을 받아 <code style="font-family:monospace">curl --cacert</code>로 지정해 설치하기<br>
+3. 리눅스라면 <code style="font-family:monospace">ca-certificates</code>로 시스템 인증서를 최신으로 바꾸기</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 중요한 건 오류를 빨리 없애는 것이 아니라<br>
+<strong>안전하게</strong> 설치하는 것이겠죠.<br>
+인증서 검사를 아예 끄는 방법이 검색에 보이기도 하는데요.<br>
+연결 내용이 노출될 수 있으니 회사 인증서를 지정하는 쪽을 권합니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 설치 오류를 해결하는 다섯 가지 방법을 알아보았습니다.<br>
+명령을 못 찾으면 PATH, 옛 버전이 뜨면 중복 설치,<br>
+명령부터 실패하면 셸과 네트워크, 인증서 순서로 보면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오류 메시지는 겁낼 대상이 아니라 원인을 알려 주는 안내문입니다.<br>
+메시지를 끝까지 읽는 습관 하나가 해결 시간을 크게 줄여 주는 법이죠!<br>
+다음 글에서는 클로드 코드를 쓸 때 알아 두면 좋은<br>
+터미널 기초 명령어 7가지를 정리해 보겠습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 설치하다 어떤 오류에서 막히셨나요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
