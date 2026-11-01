@@ -22,7 +22,7 @@ argument-hint: <주제>
    * `bash tools/setup_images.sh`로 환경을 준비합니다.
    * `docs/guides/samples/images-dark/`의 표본을 틀로 글자만 바꿔 `docs/drafts/images/<주제-슬러그>/src/`에 HTML을 만듭니다.
    * `python3 tools/make_blog_images.py ... --theme=dark`로 캡처하고, 만든 PNG를 하나씩 직접 열어 확인합니다. 문제가 있으면 고쳐서 다시 캡처합니다.
-10. 복사용 페이지를 만듭니다: `python3 tools/make_copy_page.py docs/drafts/<주제-슬러그>.md`. `WARN`(40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지)이 나오면 고치고 `OK`가 될 때까지 다시 만듭니다.
+10. 복사용 페이지를 만듭니다: `python3 tools/make_copy_page.py docs/drafts/<주제-슬러그>.md`. `WARN`(40자 초과 줄, 8자 미만 꼬리줄, 넓은 표, 누락된 이미지)이 나오면 고치고 `OK`가 될 때까지 다시 만듭니다.
 11. `CLAUDE.md`의 "저장 위치와 브랜치" 규칙대로 글(`.md`), 이미지(PNG와 `src/` HTML), 복사용 페이지(`.copy.html`)를 한 번에 브랜치 `post/<주제-슬러그>`에 커밋하고 푸시합니다. 세션 브랜치가 따로 지정되어 있으면 그 브랜치에 커밋합니다. `main`에는 올리지 않습니다.
 12. 복사용 페이지와 이미지를 사용자에게 전달합니다. 파일 전달 도구가 있으면 보내고, 없으면 경로를 알립니다.
 13. 결과를 한글로, 결론 먼저 보고합니다. 원고를 코드 블록으로 붙여 주지 않습니다.

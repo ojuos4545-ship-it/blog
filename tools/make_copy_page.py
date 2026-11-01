@@ -3,8 +3,8 @@
 
 사용법: make_copy_page.py <글.md> [출력.html]
 규칙은 docs/guides/style-guide.md 4-3(줄 나누기)과 9장(붙여넣기 서식)을 따른다.
-줄 폭이 40자를 넘거나 마지막 줄이 8자 미만이거나, 이미지 폴더(images/<글 이름>/)가 있는데 사진 번호에 맞는 파일이 없으면
-WARN을 내고 종료 코드 1로 끝난다.
+줄 폭이 40자를 넘거나 마지막 줄이 8자 미만이거나, 표 폭(열마다 가장 긴 줄 + 2의 합)이 40을 넘거나(4-4),
+이미지 폴더(images/<글 이름>/)가 있는데 사진 번호에 맞는 파일이 없으면 WARN을 내고 종료 코드 1로 끝난다.
 """
 import html
 import re
@@ -13,6 +13,8 @@ from pathlib import Path
 
 LIMIT = 40  # 한 줄 폭 환산 상한
 TAIL = 8  # 문장 마지막 줄 최소 폭
+CELL_PAD = 2  # 표 칸 하나의 여백 폭 환산 (style-guide 4-4)
+BR = re.compile(r"<br\s*/?>", re.I)
 
 
 def width(s: str) -> float:
@@ -62,7 +64,7 @@ def convert(md: str):
     tags = " ".join(re.findall(r"#[^\s`]+", re.search(r"\*\*태그:\*\*(.*)", meta).group(1))) if re.search(r"\*\*태그:\*\*", meta) else ""
     body = re.sub(r"<!--.*?-->", "", body, flags=re.S)
     lines = body.split("\n")
-    title, blocks, photos, para = "", [], [], []
+    title, blocks, photos, para, table_warns = "", [], [], [], []
     P = '<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">'
 
     def flush():
@@ -115,15 +117,26 @@ def convert(md: str):
             continue
         elif s.startswith("|"):
             flush()
-            rows = []
+            rows, start = [], i + 1
             while i < len(lines) and lines[i].strip().startswith("|"):
-                rows.append([c.strip() for c in lines[i].strip().strip("|").split("|")])
+                rows.append([c.strip() for c in re.split(r"(?<!\\)\|", lines[i].strip().strip("|"))])
                 i += 1
-            cell = "border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"
-            head = "".join(f'<th style="{cell};background:#3A3852;color:#FFFFFF">{inline(c)}</th>' for c in rows[0])
-            rest = [r for r in rows[2:]]
-            trs = "".join("<tr>" + "".join(f'<td style="{cell}">{inline(c)}</td>' for c in r) + "</tr>" for r in rest)
-            blocks.append(f'<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr>{head}</tr>{trs}</table>')
+            rows = [rows[0]] + rows[2:]  # 구분 행(| :--- |) 제외
+            # 칸 안의 <br>은 직접 나눈 줄바꿈이다. 열 너비는 열마다 가장 긴 줄의 폭 비율로 나눈다 (4-4)
+            ncol = max(len(r) for r in rows)
+            cols = [max((width(x) for r in rows if j < len(r) for x in BR.split(r[j])), default=0) + CELL_PAD for j in range(ncol)]
+            if sum(cols) > LIMIT:
+                widest = max(range(ncol), key=lambda j: cols[j])
+                table_warns.append(f"{start}행 표가 넓습니다 (폭 합계 {sum(cols):.1f}자 > {LIMIT}): "
+                                   f"{widest + 1}열의 긴 칸을 <br>로 나누세요")
+            pct = [round(100 * c / sum(cols)) for c in cols]
+            cell = "border:1px solid #888;padding:8px;text-align:left;vertical-align:top;word-break:keep-all"
+            show = lambda c: "<br>".join(inline(x.strip().replace("\\|", "|")) for x in BR.split(c))
+            head = "".join(f'<th width="{pct[j]}%" style="{cell};width:{pct[j]}%;background:#3A3852;color:#FFFFFF">{show(c)}</th>'
+                           for j, c in enumerate(rows[0]))
+            trs = "".join("<tr>" + "".join(f'<td style="{cell}">{show(c)}</td>' for c in r) + "</tr>" for r in rows[1:])
+            blocks.append(f'<table width="100%" style="border-collapse:collapse;width:100%;max-width:100%;margin:0 0 1.2em">'
+                          f"<tr>{head}</tr>{trs}</table>")
             continue
         elif re.match(r"^([*-]|\d+\.)\s", s):
             flush()
@@ -139,7 +152,7 @@ def convert(md: str):
             para.append(line)
         i += 1
     flush()
-    return title, tags, photos, "\n".join(blocks), check_lines([(n + 1, l) for n, l in enumerate(md.split("\n")[: body_line_count(md, meta_at)])])
+    return title, tags, photos, "\n".join(blocks), table_warns + check_lines([(n + 1, l) for n, l in enumerate(md.split("\n")[: body_line_count(md, meta_at)])])
 
 
 def body_line_count(md, meta_at):
@@ -199,7 +212,7 @@ def main(src: Path, out: Path) -> int:
         for n, (k, d) in enumerate(photos, 1)
     ) or '<tr><td colspan="4">이미지 마커가 없습니다</td></tr>'
     photo_table = f"<table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr>{rows}</table>"
-    warn_html = ('<span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span>' if not warns
+    warn_html = ('<span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 넓은 표, 누락된 이미지가 없습니다.</span>' if not warns
                  else "".join(f'<div class="warn">{esc(w)}</div>' for w in warns))
     out.write_text(PAGE.format(title=esc(title), tags=esc(tags), photo_table=photo_table, warns=warn_html, body=body), encoding="utf-8")
     print(f"{'OK  ' if not warns else 'WARN'} {out} (사진 자리 {len(photos)}개, 태그 {len(tags.split())}개)")
