@@ -10,6 +10,7 @@
 | `04_card_mcp-login.html` | 포인트카드 | 번호 행 3개 + `PROMPT` 박스 |
 | `05_table_scope.html` | 비교표 | 표 + `KEY POINT` 박스 |
 | `06_card_summary.html` | 포인트카드 | 글 마지막 요약 + `NEXT` 다음 글 예고 |
+| `07_thumbnail_photo.html` | 썸네일(사진) | 1080×1080. 위는 사진 칸, 아래는 모델명 한 줄(가운데 정렬), 사진 아래 출처 줄. 사진 파일(`photo.jpg`)은 글의 `src/` 폴더에 따로 둔다. 이 표본만으로는 사진이 보이지 않는다 |
 
 캡처는 다음 명령으로 한다. HTML은 `src/`에, PNG는 그 위 폴더에 둔다.
 

@@ -38,3 +38,13 @@ th{background:var(--th);color:var(--ink)}th.ok{color:var(--sky)}th.no{color:var(
 .titem{display:flex;align-items:center;gap:24px;font-size:40px;font-weight:600;background:var(--card);
        border:2px solid var(--line);border-radius:20px;padding:22px 32px;margin-top:20px}
 .titem .num{width:52px;height:52px;font-size:32px}
+
+/* 사진 썸네일: 위는 사진 칸(높이 고정), 아래는 글자 칸. 사진은 칸을 채우고 넘치는 부분을 자른다.
+   사진마다 달라지는 것은 파일과 자르는 기준점(object-position)뿐이다. */
+.photo-thumb{padding:0;justify-content:flex-start}
+.photo-thumb .photo{position:relative;height:760px;overflow:hidden}
+.photo-thumb .photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.photo-thumb .photo::after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;
+  background:linear-gradient(to bottom,rgba(11,12,16,0),var(--bg))}
+.photo-thumb .credit{position:absolute;left:0;right:0;bottom:24px;z-index:1;text-align:center;font-size:32px;color:var(--sub)}
+.photo-thumb .pt-body{flex:1;padding:0 80px 40px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
