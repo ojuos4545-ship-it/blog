@@ -219,6 +219,13 @@ tesla.com/ko_kr, kia.com, ev.or.kr 등 공식 사이트는 이 세션의 네트�
 [리콜] 2024년 1월 국토교통부 발표, 모델 Y 등 4개 차종 오토파일럿 소프트웨어 오류
 - https://www.ajunews.com/view/20240104080128745
 
+[사진 출처] 썸네일 사진 (image-guide 11장)
+- 작성자: JustAnotherCarDesigner (2025-02-23 촬영)
+- 라이선스: CC0 1.0 (http://creativecommons.org/publicdomain/zero/1.0/deed.en) 표기 의무는 없으나 이미지 안에 출처 줄을 넣음
+- 설명 페이지: https://commons.wikimedia.org/wiki/File:Tesla_Model_Y_facelift_001.jpg
+- 확인한 날짜: 2026-11-04, 받은 곳: upload.wikimedia.org 1920px 미리보기 (글의 src/photo.jpg)
+- 신형(2025년 이후 디자인) 모델 Y를 눈으로 확인함. 매장 표지판의 중국어로 보아 해외(중국) 매장 촬영으로 보이며 한국 판매 사양과 다를 수 있음. 본문 안내는 넣지 않기로 함(글쓴이 결정)
+
 [뺀 내용] 충전 속도·포트 규격(한국 사양 근거 부족, 한 블로그만 NACS로 적어 신뢰하지 않음), 유지비, 경쟁 차종 비교, 롱레인지·L의 국고 금액(50% 감액 적용 여부가 출처마다 불명확)
 [다음 글 예고] 이미지의 NEXT 문구는 임시다. 실제 계획에 맞게 바꿀 것
 -->
