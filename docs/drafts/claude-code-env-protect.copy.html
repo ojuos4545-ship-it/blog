@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 .env 파일 보호하는 3가지</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 .env 파일 보호하는 3가지</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 .env 파일 보호하는 3가지 대표 이미지</td><td>01_thumbnail_env-protect.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 .env 파일 보호 3겹, 읽기 차단 규칙에서 샌드박스와 비밀값 줄이기로 이어지는 순서</td><td>02_diagram_env-layers.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 .env 파일 보호를 위한 permissions.deny 읽기 차단 규칙 3줄</td><td>03_card_deny-rules.png</td></tr><tr><td>04</td><td>비교표</td><td>클로드 코드 .env 파일 보호에서 deny 규칙과 샌드박스가 각각 막는 접근 경로 비교</td><td>04_table_paths.png</td></tr><tr><td>05</td><td>포인트카드</td><td>클로드 코드 샌드박스를 켜고 .env 읽기를 막는 순서</td><td>05_card_sandbox.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 .env 파일 보호를 위해 비밀값을 줄이는 세 가지 방법</td><td>06_card_reduce-secrets.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 코드 .env 파일 보호 3겹 요약, deny 규칙과 샌드박스와 비밀값 줄이기</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드env #env파일보호 #클로드코드보안 #클로드코드샌드박스 #AI코딩도구 #AI에이전트</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> .env는 읽기 차단 규칙, 샌드박스,<br>
+비밀값 줄이기의 3겹으로 지키는 것이 안전합니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"클로드 코드가 내 .env 파일을 읽는 건 아닐까 불안해요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 .env 파일 보호</strong>는<br>
+<code style="font-family:monospace">permissions.deny</code> 규칙, 샌드박스, 비밀값 줄이기의<br>
+3겹으로 하시면 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">한 가지 방법만 쓰면 빈틈이 생기기 쉬워서<br>
+각각 무엇을 막고 무엇을 못 막는지까지 나눠 정리했습니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면<br>
+내 프로젝트에 맞는 설정을 직접 넣어 보실 수 있습니다.<br>
+설정과 동작은 <a href="https://code.claude.com/docs/en/permissions">Claude Code 공식 문서</a>를<br>
+2026년 11월 5일에 확인해 정리했습니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드, 프로젝트 폴더의 .env 파일<br>
+• <strong>소요 시간:</strong> 설정 파일 하나 기준으로 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, JSON 파일을 열어 본 적이 있으면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음이라면 프로젝트 폴더의 <code style="font-family:monospace">.claude/settings.json</code>에<br>
+설정을 넣어 보세요.<br>
+이 파일은 그 폴더에서 작업하는 모두에게 적용되는<br>
+공유 설정이라, 팀이 같은 규칙을 쓰기 좋습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. .env 읽기는 deny 규칙으로 어떻게 막을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">가장 먼저 할 일은 <code style="font-family:monospace">permissions.deny</code>에 읽기 금지 규칙을 넣는 것입니다.<br>
+저도 처음엔 규칙 한 줄이면 전부 막힌다고 생각했어요.<br>
+그런데 규칙을 넣었는데도 .env가 읽혔다는 사례가<br>
+이슈로 올라와 있어서, 확인 단계까지 함께 알려 드릴게요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 프로젝트 폴더의 <code style="font-family:monospace">.claude/settings.json</code>을 엽니다.<br>
+2. 파일이 없다면 새로 만들어도 됩니다.<br>
+3. 아래 내용을 넣고 저장합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  }
+}</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">Read(./.env)</code>는 현재 폴더의 .env를 막고,<br>
+<code style="font-family:monospace">Read(./.env.*)</code>는 <code style="font-family:monospace">.env.local</code>처럼 뒤에 이름이 붙은<br>
+파일까지 막습니다.<br>
+공식 문서에 따르면 Read 규칙은 같은 경로에 대한<br>
+Edit와 Write 도구도 함께 막아 줍니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> <code style="font-family:monospace">.claudeignore</code> 파일로 막아 두셨다면 주의하세요.<br>
+공식 문서는 이 파일이 효과가 없다고 안내합니다.<br>
+항목을 <code style="font-family:monospace">Read</code> deny 규칙으로 옮겨 주세요.</blockquote>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">제대로 막혔는지는 어떻게 확인할까?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드에서 <code style="font-family:monospace">/permissions</code>를 입력하면<br>
+규칙 목록과 각 규칙이 들어 있는 파일이 나옵니다.<br>
+규칙이 보이면 아래처럼 부탁해서 거절되는지도 확인해 보세요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">.env 파일 내용을 읽어서 보여줘</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">규칙이 보이지 않는다면 <code style="font-family:monospace">/status</code>에서 <code style="font-family:monospace">Setting sources</code> 줄을 확인하고,<br>
+파일의 JSON 오류는 <code style="font-family:monospace">claude doctor</code>로 찾을 수 있습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. deny 규칙의 빈틈은 샌드박스로 어떻게 막을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 빈틈을 메울 차례입니다.<br>
+공식 문서에 따르면 Read deny 규칙은 내장 파일 도구와<br>
+<code style="font-family:monospace">cat</code>, <code style="font-family:monospace">head</code>, <code style="font-family:monospace">tail</code>, <code style="font-family:monospace">sed</code>처럼 클로드 코드가 알아보는<br>
+명령에 적용됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">하지만 파일 이름을 쓰지 않고 읽는 <code style="font-family:monospace">grep -r pattern .</code> 같은 명령이나,<br>
+파이썬·노드 스크립트가 직접 파일을 여는 경우는<br>
+적용되지 않는다고 합니다.<br>
+규칙만 넣고 안심했다가 grep 결과에 .env 줄이 딸려 나오는 걸<br>
+뒤늦게 알았다는 분도 있더라고요.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">접근 경로</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">deny 규칙</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">샌드박스</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Read 도구</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막지 못함</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">**<code style="font-family:monospace">cat .env</code>**</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">**<code style="font-family:monospace">grep -r</code>**</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막지 못함</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>파이썬·노드 스크립트</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막지 못함</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">막음</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그래서 두 가지를 함께 씁니다.<br>
+샌드박스는 기본으로 꺼져 있어서 클로드 코드에서 <code style="font-family:monospace">/sandbox</code>를 입력해 켜거나,<br>
+설정 파일에 <code style="font-family:monospace">sandbox.enabled</code>를 <code style="font-family:monospace">true</code>로 넣으면 됩니다.<br>
+지원 환경은 macOS, Linux, WSL2이고,<br>
+리눅스와 WSL2는 <code style="font-family:monospace">bubblewrap</code>과 <code style="font-family:monospace">socat</code>을 먼저 설치해야 합니다.<br>
+네이티브 윈도우에서는 샌드박스 없이 실행된다고 하니 꼭 확인하세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이제 .env를 막는 항목을 넣을 차례입니다.<br>
+아래는 홈 폴더 아래의 모든 .env를 막는 공식 문서의 예시 방식입니다.<br>
+프로젝트가 홈 폴더 안에 있다는 전제입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": ["~/**/.env"]
+    }
+  }
+}</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 샌드박스 경로는 Read 규칙과 표기법이 다릅니다.<br>
+샌드박스는 <code style="font-family:monospace">~/</code>가 홈 기준, <code style="font-family:monospace">/tmp/build</code>가 절대 경로입니다.<br>
+Read 규칙은 <code style="font-family:monospace">//path</code>가 절대 경로, <code style="font-family:monospace">/path</code>가 프로젝트 기준입니다.</blockquote>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">denyRead</code>는 내장 Read 도구를 막지 못한다고 하니<br>
+Step 1의 deny 규칙은 그대로 두세요.<br>
+두 설정이 서로의 빈틈을 채우는 구조입니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. .env 속 비밀값 자체는 어떻게 줄일까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드 .env 파일 보호의 마지막은 값 자체를 줄이는 일입니다.<br>
+규칙과 샌드박스를 모두 걸어도 파일 안에 값이 많을수록<br>
+사고가 났을 때의 피해는 커집니다.<br>
+보안 연구팀 Knostic은 클로드 코드가 .env 같은 파일을<br>
+따로 묻지 않고 불러온다고 보고했는데요.<br>
+프로젝트를 열었을 뿐인데 .env 값이 이미 쓰이고 있었다는 사례도<br>
+함께 소개되어, 파일을 어디에 두는지부터 다시 보게 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">세 가지만 바꿔도 노출될 수 있는 값이 줄어듭니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. .env를 프로젝트 폴더 밖으로 옮기고, 경로도 고칩니다.<br>
+2. 키는 필요한 권한만 가진 개발용 키로 바꿉니다.<br>
+3. 운영 서버의 키는 .env 대신 비밀 관리 서비스에 둡니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 키가 대화에 노출됐을지도 모른다는 생각이 들면<br>
+해당 키를 새로 발급받아 바로 교체하세요.<br>
+교체한 뒤에는 이전 키가 더 이상 쓰이지 않는지 확인하세요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 .env 파일 보호를<br>
+deny 규칙, 샌드박스, 비밀값 줄이기의 3겹으로 알아보았습니다.<br>
+규칙 하나로 끝내지 않고 겹겹이 두면<br>
+한 곳이 뚫려도 다른 곳이 받쳐 줍니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에는 <code style="font-family:monospace">Read(./.env)</code> 한 줄과 <code style="font-family:monospace">/permissions</code> 확인부터 시작해 보세요.<br>
+작은 설정 하나가 큰 사고를 막아 주는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 .env 말고 또 어떤 파일을 막아 두고 계신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>

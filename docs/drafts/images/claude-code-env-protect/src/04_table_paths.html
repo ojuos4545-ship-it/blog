@@ -1,0 +1,17 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"></head><body>
+<div class="canvas">
+  <div class="head"><span class="no">STEP 2</span><span class="title">접근 경로별 차단 범위</span></div>
+  <table>
+    <tr><th style="width:330px">접근 경로</th><th class="ok">deny 규칙</th><th class="no">샌드박스</th></tr>
+    <tr><td>Read 도구</td><td>막음</td><td>막지 못함</td></tr>
+    <tr><td>cat .env</td><td>막음</td><td>막음</td></tr>
+    <tr><td>grep -r</td><td>막지 못함</td><td>막음</td></tr>
+    <tr><td>스크립트</td><td>막지 못함</td><td>막음</td></tr>
+  </table>
+  <div class="key">
+    <div class="label">KEY POINT</div>
+    <div class="big">두 설정을 함께 쓰기</div>
+    <div class="small">서로의 빈틈을 채우는 구조</div>
+  </div>
+</div>
+</body></html>
