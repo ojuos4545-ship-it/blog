@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 settings.json 설정법</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 settings.json 설정법</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 settings.json 설정법 3단계 대표 이미지</td><td>01_thumbnail_settings-json.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 settings.json 우선순위, user보다 project, project보다 local이 우선</td><td>02_diagram_priority.png</td></tr><tr><td>03</td><td>비교표</td><td>클로드 코드 settings.json 범위 user, project, local의 장단점 비교</td><td>03_table_scope.png</td></tr><tr><td>04</td><td>포인트카드</td><td>클로드 코드 settings.json 규칙 확인 순서 deny, ask, allow</td><td>04_card_permissions.png</td></tr><tr><td>05</td><td>포인트카드</td><td>클로드 코드 settings.json 적용 확인 명령 /permissions, /status, claude doctor</td><td>05_card_check.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 settings.json 설정법 3단계 요약: 위치, 권한, 확인</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드설정 #settingsjson #클로드코드권한설정 #AI코딩도구 #AI에이전트</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> settings.json은 파일 위치 고르기,<br>
+권한 규칙 쓰기, 적용 확인의 3단계로 끝납니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"settings.json이 어디 있는지, 뭘 적어야 하는지 모르겠어요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 settings.json 설정법</strong>은<br>
+파일 위치를 고르고, 권한 규칙을 적고, 적용됐는지 확인하는<br>
+3단계면 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">settings.json은 클로드 코드의 허용 범위와 환경 설정을<br>
+파일 하나에 적어 두는 설정 파일입니다.<br>
+JSON은 중괄호 안에 "이름": 값 쌍으로 적는 텍스트 형식을 말해요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘 이 글 하나만 끝까지 읽으시면<br>
+복사해서 바로 쓸 수 있는 설정 예시까지 갖게 되실 거예요.<br>
+명령어와 설정은 <a href="https://code.claude.com/docs/en/settings">Claude Code 공식 문서</a>를<br>
+2026년 11월 5일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 텍스트 편집기<br>
+• <strong>소요 시간:</strong> 파일 하나 기준으로 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, 복사해서 붙여 넣을 수 있으면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음이라면 프로젝트 폴더 하나를 정해서 시작해 보세요.<br>
+한 프로젝트에서 먼저 해 보면 나중에 다른 곳에 옮기기도 쉽습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 settings.json은 어디에 만들까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 시작할 때 가장 많이 헷갈리는 부분은 바로 파일 위치입니다.<br>
+같은 규칙을 어느 파일에 적어야 하는지,<br>
+파일이 겹치면 어느 쪽이 이기는지 몰라 헤매는 분이 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 표로 정리했습니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">범위</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">파일 위치</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">적용 대상</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">팀 공유</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>user</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">~/.claude/settings.json</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">내 컴퓨터의 모든 프로젝트</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">안 됨</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>project</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">.claude/settings.json</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">해당 프로젝트</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">됨 (커밋하면)</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>local</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">.claude/settings.local.json</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">해당 프로젝트</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">안 됨</td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">같은 항목이 여러 파일에 있으면 높은 쪽이 이깁니다.<br>
+공식 문서 기준 순서는 관리자 설정, 명령줄, local, project, user입니다.<br>
+다만 <code style="font-family:monospace">permissions.allow</code> 같은 목록은 덮어쓰지 않고 합쳐집니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 터미널에서 프로젝트 폴더로 이동합니다.<br>
+2. 그 안에 <code style="font-family:monospace">.claude</code> 폴더를 만듭니다.<br>
+3. 폴더 안에 <code style="font-family:monospace">settings.json</code>을 만들고 <code style="font-family:monospace">{}</code>를 적습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">mkdir -p .claude</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">빈 중괄호 한 쌍도 올바른 JSON이라 이대로 시작해도 됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">팀이 함께 쓸 규칙은 project 파일에,<br>
+나만 쓸 설정은 local 파일에 두는 게 기본입니다.<br>
+팀 공유 파일의 <code style="font-family:monospace">allow</code> 규칙은 팀원이 폴더를 신뢰한 뒤에 적용되고,<br>
+<code style="font-family:monospace">deny</code>와 <code style="font-family:monospace">ask</code> 규칙은 바로 적용됩니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">범위</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">장점 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">단점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>user</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">한 번 적으면 모든 프로젝트에 적용</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">팀과 공유되지 않음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>project</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">커밋하면 팀이 같은 규칙을 씀</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">팀원 모두에게 적용되니 신중히</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>local</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">나만 쓰는 설정을 따로 둠</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">손으로 만들면 <code style="font-family:monospace">.gitignore</code>에 직접 추가</td></tr></table>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> <code style="font-family:monospace">.claude/settings.local.json</code>은<br>
+클로드 코드가 만들 때는 git 제외 목록에 알아서 넣어 주지만,<br>
+손으로 만든 파일은 <code style="font-family:monospace">.gitignore</code>에 직접 추가해야 합니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 허용과 차단 규칙은 어떻게 쓸까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 가장 자주 쓰는 <code style="font-family:monospace">permissions</code>를 채워 볼 차례입니다.<br>
+<code style="font-family:monospace">permissions</code>는 클로드가 도구를 쓸 때<br>
+그냥 할지, 물어볼지, 막을지를 정하는 항목이에요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">규칙은 <code style="font-family:monospace">allow</code>(허용), <code style="font-family:monospace">ask</code>(확인), <code style="font-family:monospace">deny</code>(차단) 세 목록에 적습니다.<br>
+형식은 <code style="font-family:monospace">도구(세부 조건)</code>이고, <code style="font-family:monospace">*</code>는 뒤에 무엇이 와도 맞는다는<br>
+와일드카드(아무 글자나 대신하는 기호)입니다.<br>
+아래는 공식 문서 예시에 <code style="font-family:monospace">ask</code> 한 줄을 더한 형태예요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test *)"
+    ],
+    "ask": [
+      "Bash(git push *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이 설정은 린트와 테스트는 묻지 않고 실행하고,<br>
+<code style="font-family:monospace">git push</code>는 매번 확인하고, <code style="font-family:monospace">.env</code> 파일 읽기는 막습니다.<br>
+맨 윗줄의 <code style="font-family:monospace">$schema</code>는 편집기에서 자동완성과 오류 표시를 켜 주는 주소예요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">규칙이 많아져도 확인 순서는 하나입니다.<br>
+클로드 코드는 <code style="font-family:monospace">deny</code>, <code style="font-family:monospace">ask</code>, <code style="font-family:monospace">allow</code> 순서로 규칙을 보고,<br>
+먼저 맞는 규칙이 결과를 정합니다.<br>
+그래서 넓은 <code style="font-family:monospace">deny</code> 규칙은 더 좁은 <code style="font-family:monospace">allow</code> 규칙으로도 풀 수 없어요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">허용 규칙을 넣었는데도 같은 확인창이 계속 뜬다는 분이 많더라고요.<br>
+<code style="font-family:monospace">&amp;&amp;</code>로 이어 붙인 명령에서 다시 묻는 사례도 있다고 해요.<br>
+이럴 땐 확인창에 뜬 명령을 규칙과 한 글자씩 비교해 보세요.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 차단 규칙은 보안 벽이 아니라 안전 장치입니다.<br>
+공식 문서에 따르면 <code style="font-family:monospace">Read</code> 차단은 <code style="font-family:monospace">cat</code> 같은 명령까지 막지만,<br>
+스크립트가 파일을 직접 여는 경우는 막지 못합니다.<br>
+완전히 막으려면 샌드박스(프로그램을 격리하는 기능)를 켜세요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 설정이 제대로 적용됐는지 어떻게 확인할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드 settings.json 설정법의 마지막은 확인입니다.<br>
+그 전에 <code style="font-family:monospace">env</code>부터 한 줄 짚고 갈게요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">env</code>는 클로드 코드 세션에서만 쓸 환경 변수를 적는 항목입니다.<br>
+환경 변수는 프로그램이 참고하는 설정값을 말해요.<br>
+예를 들어 Bash 명령의 기본 제한 시간은 2분(120000ms)인데,<br>
+아래처럼 5분으로 늘릴 수 있어요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">{
+  "env": {
+    "BASH_DEFAULT_TIMEOUT_MS": "300000"
+  }
+}</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">위 <code style="font-family:monospace">permissions</code>와 같은 중괄호 안에 쉼표로 이어서 적으면 됩니다.<br>
+팀이 공유하는 project 파일의 <code style="font-family:monospace">env</code> 값은<br>
+대부분 팀원이 폴더를 신뢰한 뒤에 적용됩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이제 클로드 코드를 실행하고 적용 여부를 확인할 차례입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. <code style="font-family:monospace">/permissions</code>로 모든 규칙과 출처 파일을 봅니다.<br>
+2. <code style="font-family:monospace">/status</code>로 읽어 들인 설정 파일을 확인합니다.<br>
+3. 문제가 있으면 터미널에서 <code style="font-family:monospace">claude doctor</code>를 실행합니다. (거부된 항목을 알려 줍니다)</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">설정이 통째로 안 먹는 이유 중에는 JSON 문법 실수가 많더라고요.<br>
+끝에 남은 쉼표 하나, <code style="font-family:monospace">//</code> 주석 하나로 파일이 무시됐다는 사례도 여럿 보였어요.<br>
+공식 문서에도 settings 파일은 엄격한 JSON이라 주석과 끝 쉼표가 오류이고,<br>
+다음 시작 때 Settings Error로 알려 준다고 적혀 있습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">의심된다면 문법부터 검사해 보세요.<br>
+올바르면 정리된 내용이 나오고, 틀리면 오류 위치가 나옵니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">python3 -m json.tool .claude/settings.json</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 settings.json 설정법을<br>
+위치 고르기, 권한 적기, 확인하기의 3단계로 알아보았습니다.<br>
+위치는 project 파일 하나, 규칙은 막을 것부터,<br>
+확인은 <code style="font-family:monospace">/permissions</code> 하나만 기억하셔도 시작은 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에는 <code style="font-family:monospace">deny</code> 규칙 하나만 넣어 보세요.<br>
+작은 설정 하나가 매번 누르던 확인을 줄여 주는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분은 어떤 규칙부터 넣어 보고 싶으신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
