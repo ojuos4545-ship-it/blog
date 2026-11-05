@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 토큰 아끼는 방법 5가지</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 토큰 아끼는 방법 5가지</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 토큰 아끼는 방법 5가지 대표 이미지</td><td>01_thumbnail_token-saving.png</td></tr><tr><td>02</td><td>다이어그램</td><td>클로드 코드 토큰이 이전 대화, CLAUDE.md와 읽은 파일, 새 질문의 합으로 매번 계산되는 구조</td><td>02_diagram_token-sum.png</td></tr><tr><td>03</td><td>포인트카드</td><td>클로드 코드 토큰 아끼는 방법 중 /clear와 /compact를 쓰는 상황 정리</td><td>03_card_clear-compact.png</td></tr><tr><td>04</td><td>비교표</td><td>클로드 코드 토큰 아끼는 방법으로 보는 Haiku, Sonnet, Opus 모델별 용도와 한도 부담 비교</td><td>04_table_models.png</td></tr><tr><td>05</td><td>포인트카드</td><td>클로드 코드 토큰 아끼는 방법 중 파일 경로와 구체적 요청으로 읽는 범위를 줄이는 순서</td><td>05_card_file-path.png</td></tr><tr><td>06</td><td>포인트카드</td><td>클로드 코드 토큰 아끼는 방법 중 CLAUDE.md를 200줄 이하로 줄이는 세 가지 기준</td><td>06_card_claude-md.png</td></tr><tr><td>07</td><td>포인트카드</td><td>클로드 코드 토큰 아끼는 방법 5가지 요약: 비우기, 모델, 경로, CLAUDE.md, 확인</td><td>07_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드토큰 #토큰절약 #클로드코드사용량 #AI코딩도구 #AI에이전트</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> 대화 비우기, 모델 고르기, 파일 경로 쓰기,<br>
+CLAUDE.md 줄이기, 사용량 확인의 5가지면 충분합니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"분명 얼마 안 썼는데 한도가 벌써 찼대요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 토큰 아끼는 방법</strong>은<br>
+작업이 바뀔 때 대화를 비우고, 모델을 용도에 맞게 고르고,<br>
+파일은 붙여 넣지 않고 경로로 알려 주는 것입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">토큰은 AI가 글을 읽고 쓰는 양을 세는 단위로,<br>
+많이 쓸수록 사용 한도가 빨리 줄어듭니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면<br>
+한도를 아끼는 습관 5가지를 바로 적용하실 수 있습니다.<br>
+내용은 <a href="https://code.claude.com/docs/en/costs">Claude Code 공식 문서</a>와<br>
+<a href="https://support.claude.com/en/articles/14552983-models-usage-limits-in-claude-code">공식 도움말</a>을<br>
+2026년 11월 5일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 - 토큰은 어디서 새어 나갈까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드, 평소 쓰던 프로젝트 하나<br>
+• <strong>소요 시간:</strong> 습관 하나당 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, 명령어 몇 개만 알면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드는 질문할 때마다 이전 대화 전체를 다시 함께 보냅니다.<br>
+여기에 프로젝트 규칙 메모인 CLAUDE.md와 읽은 파일,<br>
+새 질문까지 더해지는데요.<br>
+그중 가장 빨리 커지는 것이 이전 대화라서<br>
+긴 대화일수록 한 번 물을 때마다 더 무거워집니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 대화는 언제 비워야 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음에 가장 많이 하는 실수는<br>
+한 대화창에서 다른 작업까지 이어서 시키는 것입니다.<br>
+저도 비슷하게 쓰다가<br>
+한도가 생각보다 빨리 줄어 있어서 놀란 적이 있어요.<br>
+이전 작업의 대화가 새 질문마다 따라붙는다는 걸<br>
+알고 나서야 이유를 알았죠.<br>
+이 부분에서 막히는 분이 꽤 많더라고요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 기준대로 나눠 쓰시면 됩니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">상황</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">쓰는 명령</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">하는 일</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">새 작업을 시작할 때</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">/clear</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이전 대화를 비움</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">같은 작업을 이어 갈 때</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><code style="font-family:monospace">/compact</code></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">대화를 요약해 줄임</td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/compact</code> 뒤에 남기고 싶은 내용을 적어 줄 수도 있습니다.<br>
+공식 문서의 예시는 테스트 결과와 코드 변경에 집중하라는 뜻입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">/compact Focus on test output and code changes</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> <code style="font-family:monospace">/clear</code>는 되돌릴 수 없습니다.<br>
+나중에 다시 볼 대화라면 먼저 <code style="font-family:monospace">/rename</code>으로 이름을 붙이고,<br>
+비운 뒤에 <code style="font-family:monospace">/resume</code>으로 돌아오면 됩니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. 모델은 어떻게 고를까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 모델을 살펴볼 차례입니다.<br>
+모델은 클로드의 종류인데요, 큰 모델일수록 어려운 일을 잘하지만<br>
+한 번 쓸 때 한도를 더 많이 씁니다.<br>
+공식 도움말은 Sonnet이 코딩 작업 대부분에 알맞다고 안내합니다.<br>
+Opus는 Sonnet보다 한 번에 몇 배 더 들기 때문에<br>
+쉬운 일에는 아끼는 편이 좋습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">쉬운 작업인데도 가장 큰 모델을 그대로 두고 쓰다가<br>
+한도가 빨리 닳았다는 이야기를 자주 보게 되더라고요.<br>
+저도 그 뒤로는 쓰던 모델부터 확인하는 습관이 생겼어요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">모델</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">어울리는 일</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">한도 부담</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Haiku</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">이름 바꾸기 같은 단순 작업</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">가장 적음</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Sonnet</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">기능 개발, 테스트, 리팩터링</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">중간</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>Opus</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">어려운 디버깅, 큰 설계 판단</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">가장 큼</td></tr></table>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/model</code>을 입력하면 대화 중에도 모델을 바꿀 수 있고,<br>
+바꿔도 대화 내용은 사라지지 않습니다.<br>
+계획은 Opus로, 실행은 Sonnet으로 나누고 싶다면<br>
+아래 명령 하나면 됩니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">/model opusplan</pre>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. 파일은 어떻게 알려 줘야 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">붙여 넣은 내용은 그 대화가 끝날 때까지 통째로 남습니다.<br>
+파일 경로로 알려 주면 클로드가 필요한 부분만 골라 읽습니다.<br>
+다만 경로 앞에 <code style="font-family:monospace">@</code>를 붙이면 파일 전체가 들어가니<br>
+아끼고 싶을 때는 <code style="font-family:monospace">@</code> 없이 경로만 적으세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">요청도 구체적일수록 좋습니다.<br>
+"이 코드를 개선해줘"처럼 막연하게 말하면<br>
+클로드가 더 많은 파일을 뒤지게 되기 때문입니다.<br>
+오류 로그는 관련된 20~30줄만 추려서 붙여 넣으세요.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">src/auth.ts의 validateToken 함수에서 만료 시간 처리만 확인해줘</pre>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 4. CLAUDE.md는 얼마나 줄여야 할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">CLAUDE.md는 매 대화 앞에 붙는 파일입니다.<br>
+캐시 덕분에 두 번째 질문부터는 비용이 훨씬 싸지만,<br>
+그래도 대화창의 자리는 계속 차지합니다.<br>
+공식 도움말은 200줄 이하로 간결하게 두라고 안내합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음엔 메모를 하나둘 붙이다가<br>
+어느새 파일이 길어져 있는 경우가 많더라고요.<br>
+저도 몇 주에 한 번은 읽어 보면서<br>
+지금은 맞지 않는 내용을 지우는 편이 낫다고 느꼈어요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• 같은 지적을 두 번 했을 때만 새로 적기<br>
+• 특정 작업 전용 지침은 스킬로 옮기기<br>
+• 맞지 않게 된 낡은 내용은 지우기</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">스킬은 필요할 때만 불러오는 지침 묶음이라<br>
+평소 대화의 짐이 줄어듭니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 5. 어디서 새는지는 어떻게 확인할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">마지막으로 새는 곳을 눈으로 확인하는 단계입니다.<br>
+<code style="font-family:monospace">/usage</code>를 입력하면 이번 대화의 토큰 사용량이 나옵니다.<br>
+구독 요금제라면 무엇이 한도를 많이 썼는지와<br>
+줄이는 방법도 함께 보여 줍니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">/context</code>는 지금 대화창에 무엇이 들어 있는지 보여 줍니다.<br>
+안 쓰는 연결 서버(MCP)가 보인다면<br>
+<code style="font-family:monospace">/mcp</code>에서 꺼 두세요.</p>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> 습관 하나를 바꾸고 <code style="font-family:monospace">/usage</code>로 비교해 보세요.<br>
+어떤 습관이 내게 맞는지 숫자로 알 수 있습니다.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">6. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 토큰 아끼는 방법을<br>
+비우기, 모델, 파일 경로, CLAUDE.md, 확인의 5가지로 알아보았습니다.<br>
+한 번에 다 바꾸기보다 작업이 바뀔 때 <code style="font-family:monospace">/clear</code> 하나만<br>
+먼저 습관으로 만들어도 시작은 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">작은 습관 하나가 한도를 지켜 주는 법이죠!<br>
+여러분은 어떤 습관부터 바꿔 보고 싶으신가요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 07】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
