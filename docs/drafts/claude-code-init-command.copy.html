@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>복사용 페이지: 클로드 코드 init 명령어 초안 만드는 법</title>
+<style>
+body{font-family:-apple-system,"Noto Sans KR","Malgun Gothic",sans-serif;max-width:760px;margin:0 auto;padding:16px;line-height:1.7}
+.panel{border:1px solid #bbb;border-radius:10px;padding:14px 16px;margin:0 0 18px;font-size:14px}
+.panel h2{font-size:15px;margin:0 0 8px}
+.panel table{border-collapse:collapse;width:100%}.panel td,.panel th{border-bottom:1px solid #ddd;padding:5px 6px;text-align:left;font-size:13px}
+button{font:inherit;padding:6px 12px;border:1px solid #888;border-radius:6px;background:#f4f4f4;cursor:pointer}
+.warn{color:#b00020}.ok{color:#1b7f3b}
+#copy-area{font-size:15px}
+</style></head><body>
+<div class="panel"><h2>1. 제목 (블로그 제목 칸에 붙여넣기)</h2>
+<div id="title">클로드 코드 init 명령어 초안 만드는 법</div> <button data-copy="title">제목 복사</button></div>
+<div class="panel"><h2>2. 본문 (아래 구분선 사이 내용을 에디터에 붙여넣기)</h2>
+<button id="copy-body">본문 전체 선택하고 복사</button> <span id="msg"></span>
+<p style="margin:8px 0 0">붙여넣은 뒤 노란 칸 <b>【사진 NN】</b>을 해당 번호 이미지로 바꿉니다.</p></div>
+<div class="panel"><h2>3. 사진 자리</h2><table><tr><th>번호</th><th>종류</th><th>설명</th><th>파일 이름</th></tr><tr><td>01</td><td>썸네일</td><td>클로드 코드 init 명령어로 CLAUDE.md 초안 만드는 법 대표 이미지</td><td>01_thumbnail_init.png</td></tr><tr><td>02</td><td>다이어그램</td><td>init 명령어 실행 흐름, 폴더 이동 후 /init 입력하면 CLAUDE.md 초안 생성</td><td>02_diagram_init-flow.png</td></tr><tr><td>03</td><td>포인트카드</td><td>init 명령어가 CLAUDE.md 초안에 담는 빌드 명령, 테스트 명령, 구조 개요, 관례</td><td>03_card_init-contents.png</td></tr><tr><td>04</td><td>비교표</td><td>init 명령어 초안이 해 주는 일과 직접 확인할 점 비교</td><td>04_table_init-check.png</td></tr><tr><td>05</td><td>포인트카드</td><td>CLAUDE.md 초안 다듬기 4가지, 틀린 내용 삭제와 200줄 이하와 @ 불러오기와 /memory 편집</td><td>05_card_polish.png</td></tr><tr><td>06</td><td>포인트카드</td><td>init 명령어 3단계 요약, 실행하기와 점검하기와 다듬기</td><td>06_card_summary.png</td></tr></table></div>
+<div class="panel"><h2>4. 태그 (태그 입력란에 붙여넣기)</h2>
+<div id="tags">#클로드코드 #ClaudeCode #클로드코드init #init명령어 #CLAUDEmd #클로드코드사용법 #AI코딩도구</div> <button data-copy="tags">태그 복사</button></div>
+<div class="panel"><h2>5. 줄 점검</h2><span class="ok">문제 없음: 40자 초과 줄, 8자 미만 꼬리줄, 누락된 이미지가 없습니다.</span></div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<div id="copy-area">
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">💡 <strong>한 줄 요약:</strong> <code style="font-family:monospace">/init</code> 한 줄로 CLAUDE.md 초안을 만들고,<br>
+틀린 곳만 고치면 됩니다.</blockquote>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 01】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">"CLAUDE.md를 직접 쓰려니 뭘 적어야 할지 막막해요"<br>
+하시는 분들을 위해 준비했습니다.<br>
+결론부터 말씀드리면, <strong>클로드 코드 init 명령어</strong>는<br>
+<code style="font-family:monospace">/init</code> 한 줄로 CLAUDE.md 초안을 만들어 줍니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">CLAUDE.md는 클로드 코드가 시작할 때 읽는<br>
+프로젝트 안내 메모 파일입니다.<br>
+오늘 이 글 하나만 끝까지 읽으시면 초안 만들기부터<br>
+틀린 곳 고치는 요령까지 혼자 하실 수 있습니다.<br>
+명령어와 설정은 <a href="https://code.claude.com/docs/en/memory">Claude Code 공식 문서</a>를<br>
+2026년 11월 5일에 확인해 정리했습니다.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">🛠️ 시작하기 전에 준비할 것들</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>준비물:</strong> 클로드 코드 설치, 코드가 있는 프로젝트 폴더<br>
+• <strong>소요 시간:</strong> 초안 생성은 금방 끝납니다<br>
+• <strong>난이도:</strong> 초급, 명령어를 입력해 보셨다면 충분합니다</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">초안은 폴더 안의 코드를 읽고 만들어집니다.<br>
+그래서 코드가 이미 들어 있는 프로젝트에서 시작해야<br>
+쓸 만한 내용이 담기죠.</p>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 1. 클로드 코드 init 명령어는 어떻게 실행할까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">처음 실행할 때 헷갈리기 쉬운 부분은 입력하는 위치입니다.<br>
+<code style="font-family:monospace">/init</code>은 클로드 코드를 켠 뒤 대화창에 입력하는<br>
+슬래시 명령(<code style="font-family:monospace">/</code>로 시작하는 명령)이에요.<br>
+하위 폴더에서 시작하면 파일이 그 폴더에 생길 수 있다는<br>
+후기도 있어서, 프로젝트 최상위 폴더에서 시작하길 권합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">아래 순서대로 차근차근 따라와 주세요.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 프로젝트 최상위 폴더로 이동해 클로드 코드를 실행합니다.<br>
+2. 대화창에 <code style="font-family:monospace">/init</code>을 입력합니다.<br>
+3. 클로드가 코드를 살펴보고 초안을 만들 때까지 기다립니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">cd 내-프로젝트-폴더
+claude</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">클로드 코드가 켜지면 대화창에 아래 한 줄을 입력합니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">/init</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">이미 CLAUDE.md가 있는 프로젝트라면<br>
+다시 실행해도 되는지 묻는 분이 있더라고요.<br>
+공식 문서는 이 경우 파일을 덮어쓰지 않고<br>
+개선할 점을 제안한다고 설명합니다.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 02】</div>
+<blockquote style="margin:0 0 1.2em;padding:8px 16px;border-left:4px solid #888;word-break:keep-all">📌 <strong>전문가 Tip:</strong> Cursor나 Copilot 규칙 파일이 있는 프로젝트라면<br>
+<code style="font-family:monospace">/init</code>이 그 내용을 읽어 초안에 반영합니다.<br>
+다른 도구에서 옮겨 오는 분께 유용한 기능이에요.</blockquote>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 2. /init 초안에는 무엇이 담길까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">공식 문서가 설명하는 초안의 재료는 네 가지입니다.<br>
+빌드 명령, 테스트 명령, 프로젝트 구조 개요,<br>
+그리고 코드에서 찾아낸 작성 관례입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">• <strong>빌드 명령:</strong> 코드를 실행 가능한 상태로 만드는 명령<br>
+• <strong>테스트 명령:</strong> 코드가 잘 돌아가는지 검사하는 명령<br>
+• <strong>구조 개요:</strong> 폴더마다 맡은 역할<br>
+• <strong>관례:</strong> 코드에서 감지한 작성 규칙</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 03】</div>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그럼 초안을 그대로 써도 될까요?<br>
+초안은 코드를 분석해 만든 결과라서 틀린 정보가 섞일 수 있습니다.<br>
+공식 도움말도 초안을 읽어 보고 부정확한 내용을 지운 뒤<br>
+저장하라고 안내합니다.</p>
+<table style="border-collapse:collapse;width:100%;margin:0 0 1.2em"><tr><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">항목</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">초안이 해 주는 일 👍</th><th style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all;background:#3A3852;color:#FFFFFF">직접 확인할 점 👎</th></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>명령어</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">빌드·테스트 명령을 찾아 적음</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">틀린 명령은 삭제</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>구조</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">폴더 역할을 정리해 줌</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">길면 핵심만 남김</td></tr><tr><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all"><strong>규칙</strong></td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">감지한 관례를 반영</td><td style="border:1px solid #888;padding:8px;text-align:left;word-break:keep-all">코드에 없는 약속은 직접 추가</td></tr></table>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 04】</div>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">Step 3. CLAUDE.md 초안은 어떻게 다듬을까?</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">기본이 끝났다면 이제 다듬을 차례입니다.<br>
+초안을 그대로 두면 내용이 길어져<br>
+중요한 규칙이 묻힌다는 후기가 여러 곳에 보이더라고요.<br>
+공식 문서는 파일 하나를 200줄 아래로 맞추라고 권합니다.<br>
+길수록 컨텍스트(AI가 한 번에 읽는 분량)를 더 쓰고<br>
+지시를 덜 따르게 된다는 이유입니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">1. 틀린 내용을 삭제합니다.<br>
+2. 파일 전체를 200줄 이하로 줄입니다.<br>
+3. 긴 설명은 <code style="font-family:monospace">@</code> 표기로 다른 파일을 불러옵니다.<br>
+4. <code style="font-family:monospace">/memory</code>로 파일을 열어 직접 고칩니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em"><code style="font-family:monospace">@</code> 표기는 CLAUDE.md 안에 아래처럼 적습니다.<br>
+공식 문서 예시를 한국어로 옮긴 것입니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">프로젝트 개요는 @README를 참고하고,
+사용할 npm 명령은 @package.json을 참고하세요.</pre>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">제대로 불러왔는지 보려면 <code style="font-family:monospace">/context all</code>을 실행해<br>
+<strong>Memory files</strong> 목록에 CLAUDE.md가 있는지 확인하세요.</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 05】</div>
+<h3 style="font-size:1.2em;margin:1.6em 0 .6em">더 꼼꼼하게 만들고 싶다면?</h3>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">환경 변수 <code style="font-family:monospace">CLAUDE_CODE_NEW_INIT</code>을 <code style="font-family:monospace">1</code>로 설정하면<br>
+<code style="font-family:monospace">/init</code>이 대화형으로 진행됩니다.<br>
+먼저 CLAUDE.md, 스킬(반복 작업 지침서),<br>
+훅(특정 시점에 자동 실행되는 동작) 중<br>
+무엇을 만들지 묻습니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">그다음 서브에이전트(보조 AI)로 코드를 살펴보고,<br>
+파일을 쓰기 전에 검토할 제안을 먼저 보여 줍니다.<br>
+공식 문서에 따르면 이 변수는 실행 방식만 바꾸니<br>
+켜 둬도 괜찮습니다.</p>
+<pre style="font-family:monospace;border:1px solid #888;padding:12px;white-space:pre-wrap;word-break:break-all;margin:0 0 1.2em">CLAUDE_CODE_NEW_INIT=1 claude</pre>
+<hr>
+<h2 style="font-size:1.5em;margin:1.6em 0 .6em">4. 마무리</h2>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">오늘은 클로드 코드 init 명령어로<br>
+CLAUDE.md 초안을 만들고 다듬는 법을 알아보았습니다.<br>
+실행은 <code style="font-family:monospace">/init</code>, 점검은 틀린 내용 삭제,<br>
+정리는 200줄 이하만 기억하셔도 시작은 충분합니다.</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">한 번 만들고 끝내기보다 프로젝트가 바뀔 때<br>
+다시 손보는 분이 많더라고요.<br>
+처음부터 완벽한 파일을 만들 필요는 없어요.<br>
+작은 수정 하나가 클로드의 이해를 바꾸는 법이죠!</p>
+<p style="word-break:keep-all;overflow-wrap:anywhere;margin:0 0 1.2em">여러분의 프로젝트에서는 초안에 어떤 내용이 빠져 있었나요?<br>
+궁금한 점은 언제든 댓글로 남겨주세요. 감사합니다!</p>
+<div style="background:#FFE45C;color:#000;text-align:center;padding:18px;margin:0 0 1.2em;font-weight:bold">【사진 06】</div>
+<hr>
+</div>
+<hr style="border:0;border-top:2px dashed #999;margin:22px 0">
+<script>
+function done(t){var m=document.getElementById('msg');m.textContent=t;setTimeout(function(){m.textContent=''},2500)}
+document.querySelectorAll('[data-copy]').forEach(function(b){b.onclick=function(){
+  var t=document.getElementById(b.dataset.copy).textContent;
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){done('복사했습니다')},function(){done('복사 실패: 직접 선택해 복사하세요')});}});
+document.getElementById('copy-body').onclick=function(){
+  var r=document.createRange();r.selectNodeContents(document.getElementById('copy-area'));
+  var s=getSelection();s.removeAllRanges();s.addRange(r);
+  done(document.execCommand('copy')?'복사했습니다':'선택했습니다. Ctrl+C로 복사하세요');};
+</script></body></html>
